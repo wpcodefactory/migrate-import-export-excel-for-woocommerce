@@ -60,7 +60,7 @@ finally you get a table of fields that can be downloaded in xlsx, csv, or txt fo
 * Import Products Extra features:
 - you can update Products by SKU
 - you can import / update WooCommerce Variable Products
-- you can import / update WooCommerce Affiliate/  External Products
+- you can import / update WooCommerce Affiliate / External Products
 - you can import / update WooCommerce Subscription Products
 - you can import / export [WooCommerce Subscriptions ](https://woocommerce.com/products/woocommerce-subscriptions/ "WooCommerce Subscriptions ")
 - you can import Variable Products choosing which Attribute used for Variations (in case of many Attributes that not used in Variation)
