@@ -1,0 +1,1007 @@
+# Copyright (C) 2025 WPFactory
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Migrate Import Export WooCommerce Store with Excel 3.0.0-dev\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/migrate-import-export-excel-for-woocommerce\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-16T14:08:44+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: store-migration-products-orders-import-export-with-excel\n"
+
+#. Plugin Name of the plugin
+#: store-migration-excel.php
+msgid "Migrate Import Export WooCommerce Store with Excel"
+msgstr ""
+
+#. Description of the plugin
+#: store-migration-excel.php
+msgid "Migrate - import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel."
+msgstr ""
+
+#. Author of the plugin
+#: store-migration-excel.php
+msgid "WPFactory"
+msgstr ""
+
+#. Author URI of the plugin
+#: store-migration-excel.php
+msgid "https://wpfactory.com"
+msgstr ""
+
+#: class-main.php:80
+msgid "Migration Process Sequence"
+msgstr ""
+
+#: class-main.php:83
+msgid "Prerequisite for creating an order is products import."
+msgstr ""
+
+#: class-main.php:84
+msgid "Example:"
+msgstr ""
+
+#: class-main.php:86
+msgid "Import Products"
+msgstr ""
+
+#: class-main.php:87
+msgid "Import Product Reviews - pro version"
+msgstr ""
+
+#: class-main.php:88
+msgid "Import Coupons - optional"
+msgstr ""
+
+#: class-main.php:89
+msgid "Import Customers  - optional"
+msgstr ""
+
+#: class-main.php:90
+msgid "Import Orders - assign to already created customer or guest"
+msgstr ""
+
+#: class-main.php:95
+msgid "Should customers be added before orders?"
+msgstr ""
+
+#: class-main.php:97
+msgid "This is optional. You either:"
+msgstr ""
+
+#: class-main.php:99
+msgid "Import Customers  first, then the order"
+msgstr ""
+
+#: class-main.php:100
+msgid "PRO VERSION - Import directly the Orders and either create new customer while creating the Order or just check as guest"
+msgstr ""
+
+#: class-main.php:104
+msgid "Am I required to first import products?"
+msgstr ""
+
+#: class-main.php:106
+msgid "You need to import products before trying to add any orders - during order import, product will not be created if not exist"
+msgstr ""
+
+#: class-main.php:110
+msgid "How is Tax calculated in Orders?"
+msgstr ""
+
+#: class-main.php:112
+msgid "You can create the tax class, the edit existing products defining the Tax Class and Status, or while importing products from the excel file, define tax status and class for each imported product"
+msgstr ""
+
+#: class-main.php:113
+msgid "Then, while importing Order tax will be calculated automatically"
+msgstr ""
+
+#: class-main.php:117
+msgid "How is Shipping added in Orders?"
+msgstr ""
+
+#: class-main.php:119
+msgid "You will add a shipping method "
+msgstr ""
+
+#: class-main.php:120
+msgid "Moreover you will define in the excel file the total shipping cost"
+msgstr ""
+
+#: class-main.php:125
+msgid "How to add Product Reviews?"
+msgstr ""
+
+#: class-main.php:127
+#: class-main.php:133
+#: class-main.php:139
+#: class-main.php:144
+msgid "This feature is available in the "
+msgstr ""
+
+#: class-main.php:127
+#: class-main.php:133
+#: class-main.php:139
+#: class-main.php:144
+#: includes/products.php:53
+#: includes/products.php:606
+#: includes/products.php:618
+#: includes/products.php:621
+#: includes/products.php:624
+#: includes/products.php:736
+#: includes/products.php:742
+#: includes/products.php:746
+#: includes/products.php:752
+#: store-migration-excel.php:253
+msgid "PRO Version"
+msgstr ""
+
+#: class-main.php:131
+msgid "How to import Variable Products?"
+msgstr ""
+
+#: class-main.php:137
+msgid "How to import Orders with Variable Products?"
+msgstr ""
+
+#: class-main.php:142
+msgid "How to import WooCommerce Subscriptions ?"
+msgstr ""
+
+#: includes/class-wpfactory-wc-procm.php:141
+#: includes/class-wpfactory-wc-procm.php:142
+msgid "Store Migration"
+msgstr ""
+
+#: includes/coupons.php:24
+msgid "IMPORT / UPDATE Coupons"
+msgstr ""
+
+#: includes/coupons.php:29
+msgid "Download the sample excel file, save it and add your Product Reviews. Upload it using the form below."
+msgstr ""
+
+#: includes/coupons.php:32
+msgid "Coupons Excel Sample"
+msgstr ""
+
+#: includes/coupons.php:51
+#: includes/coupons.php:120
+#: includes/customers.php:302
+#: includes/orders.php:317
+#: includes/orders.php:402
+#: includes/products.php:657
+#: includes/products.php:776
+msgid "Upload"
+msgstr ""
+
+#: includes/coupons.php:94
+msgid "DATA MAPPING: Drag and drop excel columns on the right to reviews properties on the left."
+msgstr ""
+
+#: includes/coupons.php:97
+#: includes/customers.php:356
+#: includes/orders.php:363
+#: includes/products.php:707
+msgid "Auto Match Columns - PRO"
+msgstr ""
+
+#: includes/coupons.php:103
+#: includes/customers.php:368
+#: includes/orders.php:385
+#: includes/products.php:759
+msgid "EXCEL COLUMNS"
+msgstr ""
+
+#: includes/coupons.php:129
+msgid "COUPONS FIELDS"
+msgstr ""
+
+#: includes/coupons.php:177
+#: includes/customers.php:437
+#: includes/orders.php:450
+#: includes/products.php:869
+msgid "Invalid File:Please Upload Excel File"
+msgstr ""
+
+#: includes/coupons.php:276
+#: includes/customers.php:535
+#: includes/orders.php:714
+#: includes/products.php:1347
+msgid "- JOB DONE!"
+msgstr ""
+
+#: includes/coupons.php:276
+msgid "View Coupons"
+msgstr ""
+
+#: includes/coupons.php:282
+#: includes/customers.php:541
+#: includes/orders.php:720
+#: includes/products.php:1353
+msgid "Please dont close this page... Loading..."
+msgstr ""
+
+#: includes/coupons.php:297
+#: includes/customers.php:555
+#: includes/orders.php:736
+#: includes/products.php:96
+msgid "Filter & Fields to Show"
+msgstr ""
+
+#: includes/coupons.php:305
+#: includes/orders.php:744
+#: includes/products.php:113
+msgid "Keywords"
+msgstr ""
+
+#: includes/coupons.php:308
+#: includes/orders.php:747
+#: includes/products.php:116
+msgid "Search term"
+msgstr ""
+
+#: includes/coupons.php:314
+#: includes/customers.php:579
+#: includes/orders.php:784
+#: includes/products.php:173
+msgid "Limit Results"
+msgstr ""
+
+#: includes/coupons.php:317
+#: includes/customers.php:582
+#: includes/orders.php:787
+#: includes/products.php:176
+msgid "Number to display.."
+msgstr ""
+
+#: includes/coupons.php:321
+#: includes/customers.php:571
+#: includes/orders.php:775
+msgid "To Creation Date"
+msgstr ""
+
+#: includes/coupons.php:324
+#: includes/customers.php:568
+#: includes/customers.php:574
+msgid "registration date"
+msgstr ""
+
+#: includes/coupons.php:327
+#: includes/customers.php:587
+#: includes/orders.php:793
+#: includes/products.php:178
+msgid "Start from.."
+msgstr ""
+
+#: includes/coupons.php:338
+#: includes/customers.php:598
+#: includes/orders.php:804
+#: includes/products.php:229
+msgid "FIELDS TO SHOW"
+msgstr ""
+
+#: includes/coupons.php:343
+#: includes/customers.php:603
+#: includes/orders.php:809
+#: includes/products.php:198
+#: includes/products.php:234
+msgid "Check All"
+msgstr ""
+
+#: includes/coupons.php:368
+#: includes/customers.php:643
+#: includes/orders.php:839
+#: includes/products.php:270
+msgid "Search"
+msgstr ""
+
+#: includes/coupons.php:431
+#: includes/customers.php:695
+#: includes/orders.php:899
+#: includes/products.php:348
+msgid "Wait... Download is loading..."
+msgstr ""
+
+#: includes/coupons.php:457
+#: includes/customers.php:721
+#: includes/orders.php:378
+#: includes/products.php:377
+#: includes/products.php:717
+msgid "ID"
+msgstr ""
+
+#: includes/coupons.php:480
+msgid "No Users found."
+msgstr ""
+
+#: includes/coupons.php:580
+msgid "No Coupons Found"
+msgstr ""
+
+#: includes/customers.php:277
+msgid "IMPORT / UPDATE Customers"
+msgstr ""
+
+#: includes/customers.php:280
+msgid "Download the sample excel file, save it and add your Customers. Upload it using the form below."
+msgstr ""
+
+#: includes/customers.php:282
+msgid "Customers Excel Sample"
+msgstr ""
+
+#: includes/customers.php:353
+msgid "DATA MAPPING: Drag and drop excel columns on the right to customer properties on the left."
+msgstr ""
+
+#: includes/customers.php:362
+msgid "Send Email to newly created Users - PRO Version"
+msgstr ""
+
+#: includes/customers.php:365
+msgid "Update Existing Users - PRO Version"
+msgstr ""
+
+#: includes/customers.php:396
+msgid "CUSTOMER FIELDS"
+msgstr ""
+
+#: includes/customers.php:400
+msgid "EMAIL "
+msgstr ""
+
+#: includes/customers.php:403
+msgid "USERNAME "
+msgstr ""
+
+#: includes/customers.php:407
+msgid "PASSWORD "
+msgstr ""
+
+#: includes/customers.php:410
+msgid "URL - WEBSITE "
+msgstr ""
+
+#: includes/customers.php:501
+msgid " created"
+msgstr ""
+
+#: includes/customers.php:504
+msgid "User with "
+msgstr ""
+
+#: includes/customers.php:504
+msgid " already exists. "
+msgstr ""
+
+#: includes/customers.php:535
+msgid "View Customers"
+msgstr ""
+
+#: includes/customers.php:565
+#: includes/orders.php:769
+msgid "From Creation Date"
+msgstr ""
+
+#: includes/customers.php:758
+msgid "No Customers found."
+msgstr ""
+
+#: includes/customers.php:842
+msgid "No Customers Found"
+msgstr ""
+
+#: includes/orders.php:289
+msgid "IMPORT / UPDATE Orders"
+msgstr ""
+
+#: includes/orders.php:295
+msgid "Download the sample excel file, save it and add your Orders. Upload it using the form below."
+msgstr ""
+
+#: includes/orders.php:298
+msgid "Orders Excel Sample"
+msgstr ""
+
+#: includes/orders.php:360
+msgid "DATA MAPPING: Drag and drop excel columns on the right to orders properties on the left."
+msgstr ""
+
+#: includes/orders.php:369
+msgid "Shipping same as Billing address"
+msgstr ""
+
+#: includes/orders.php:372
+msgid "Create user if not exist - PRO"
+msgstr ""
+
+#: includes/orders.php:375
+msgid "Product to Orders by"
+msgstr ""
+
+#: includes/orders.php:377
+msgid "select by..."
+msgstr ""
+
+#: includes/orders.php:379
+#: includes/products.php:121
+#: includes/products.php:363
+msgid "SKU"
+msgstr ""
+
+#: includes/orders.php:380
+#: includes/products.php:363
+#: includes/products.php:719
+msgid "TITLE"
+msgstr ""
+
+#: includes/orders.php:411
+msgid "ORDERS FIELDS"
+msgstr ""
+
+#: includes/orders.php:703
+msgid "No Simple product found for creating an order - add your products first"
+msgstr ""
+
+#: includes/orders.php:709
+#: includes/products.php:1108
+msgid "created"
+msgstr ""
+
+#: includes/orders.php:714
+msgid "View Orders"
+msgstr ""
+
+#: includes/orders.php:753
+msgid "Status"
+msgstr ""
+
+#: includes/orders.php:757
+msgid "All"
+msgstr ""
+
+#: includes/orders.php:758
+msgid "Completed"
+msgstr ""
+
+#: includes/orders.php:759
+msgid "Hold"
+msgstr ""
+
+#: includes/orders.php:760
+msgid "Refunded"
+msgstr ""
+
+#: includes/orders.php:761
+msgid "Trash"
+msgstr ""
+
+#: includes/orders.php:772
+msgid "FROM date"
+msgstr ""
+
+#: includes/orders.php:778
+msgid "TO date"
+msgstr ""
+
+#: includes/orders.php:951
+msgid "No Orders found."
+msgstr ""
+
+#: includes/orders.php:1182
+msgid "No Orders Found"
+msgstr ""
+
+#: includes/products.php:53
+msgid "EXPORT SIMPLE PRODUCTS. For variable get "
+msgstr ""
+
+#: includes/products.php:56
+msgid "Important Note: always save the generated export file in xlsx format to a new excel for import use."
+msgstr ""
+
+#: includes/products.php:70
+msgid "Select.."
+msgstr ""
+
+#: includes/products.php:102
+msgid "filter by Taxonomy - PRO"
+msgstr ""
+
+#: includes/products.php:123
+msgid "Search by SKU"
+msgstr ""
+
+#: includes/products.php:129
+#: includes/products.php:132
+msgid "Regular Price"
+msgstr ""
+
+#: includes/products.php:129
+#: includes/products.php:135
+#: includes/products.php:150
+#: includes/products.php:157
+msgid " - PRO"
+msgstr ""
+
+#: includes/products.php:135
+msgid "Regular Price Selector"
+msgstr ""
+
+#: includes/products.php:150
+#: includes/products.php:153
+msgid "Sale Price"
+msgstr ""
+
+#: includes/products.php:157
+msgid "Sale Price Selector"
+msgstr ""
+
+#: includes/products.php:193
+msgid "TAXONOMIES TO SHOW"
+msgstr ""
+
+#: includes/products.php:279
+msgid "No Products to display..."
+msgstr ""
+
+#: includes/products.php:363
+msgid "DESCRIPTION"
+msgstr ""
+
+#: includes/products.php:363
+msgid "EXCERPT"
+msgstr ""
+
+#: includes/products.php:363
+msgid "POST NAME"
+msgstr ""
+
+#: includes/products.php:363
+msgid "VARIATION DESCRIPTION"
+msgstr ""
+
+#: includes/products.php:363
+msgid "REGULAR PRICE"
+msgstr ""
+
+#: includes/products.php:363
+msgid "SALE PRICE"
+msgstr ""
+
+#: includes/products.php:363
+msgid "WEIGHT"
+msgstr ""
+
+#: includes/products.php:363
+msgid "STOCK"
+msgstr ""
+
+#: includes/products.php:363
+msgid "STOCK STATUS"
+msgstr ""
+
+#: includes/products.php:363
+msgid "WIDTH"
+msgstr ""
+
+#: includes/products.php:363
+msgid "LENGTH"
+msgstr ""
+
+#: includes/products.php:363
+msgid "HEIGHT"
+msgstr ""
+
+#: includes/products.php:363
+msgid "DOWNLOADABLE"
+msgstr ""
+
+#: includes/products.php:363
+msgid "DOWNLOAD LIMIT"
+msgstr ""
+
+#: includes/products.php:363
+msgid "DOWNLOAD EXPIRY"
+msgstr ""
+
+#: includes/products.php:363
+msgid "VIRTUAL"
+msgstr ""
+
+#: includes/products.php:363
+msgid "PURCHASE NOTE"
+msgstr ""
+
+#: includes/products.php:363
+msgid "UPSELL IDS"
+msgstr ""
+
+#: includes/products.php:363
+msgid "CROSSSELL IDS"
+msgstr ""
+
+#: includes/products.php:363
+msgid "THUMBNAIL ID"
+msgstr ""
+
+#: includes/products.php:363
+msgid "PRODUCT IMAGE GALLERY"
+msgstr ""
+
+#: includes/products.php:363
+msgid "SOLD INDIVIDUALLY"
+msgstr ""
+
+#: includes/products.php:363
+msgid "BACKORDERS"
+msgstr ""
+
+#: includes/products.php:363
+msgid "FEATURED"
+msgstr ""
+
+#: includes/products.php:363
+msgid "TAX STATUS"
+msgstr ""
+
+#: includes/products.php:363
+msgid "TAX CLASS"
+msgstr ""
+
+#: includes/products.php:572
+msgid "No Product Found"
+msgstr ""
+
+#: includes/products.php:582
+msgid "IMPORT / UPDATE PRODUCTS"
+msgstr ""
+
+#: includes/products.php:586
+msgid "Download the sample excel file, save it and add your Simple products. You can add your Custom Columns. Upload it using the form below."
+msgstr ""
+
+#: includes/products.php:588
+msgid "Simple Products Sample"
+msgstr ""
+
+#: includes/products.php:594
+msgid "IMAGE HANDLING"
+msgstr ""
+
+#: includes/products.php:597
+msgid "SIMPLE vs VARIABLE Products"
+msgstr ""
+
+#: includes/products.php:600
+msgid "UPDATE Info"
+msgstr ""
+
+#: includes/products.php:606
+msgid "You want to import Product Images? get "
+msgstr ""
+
+#: includes/products.php:611
+msgid "Importing Products means 3 options:"
+msgstr ""
+
+#: includes/products.php:615
+msgid "Simple Products with NO Atrributes  - 1 product (defined by unique title) per Excel row. Only one needed in the excel file."
+msgstr ""
+
+#: includes/products.php:618
+msgid "Simple Products with Atrributes (eg color) NO Variations - 1 Row per product Attribute (title of product is the same)  for Each Attribute.get "
+msgstr ""
+
+#: includes/products.php:621
+msgid "You want to import Variable Products? get "
+msgstr ""
+
+#: includes/products.php:624
+msgid "Variable Products with Attributes (eg color,size)  comma separated from Only 1 excel row. This means the variations share the same meta data such as prices, sku, stock, dimensions, images etc . Get "
+msgstr ""
+
+#: includes/products.php:630
+msgid "UPDATING VIA EXPORT SCREEN EXCEL"
+msgstr ""
+
+#: includes/products.php:633
+msgid "Export from export screen selecting ID, SKU and/or TITLE. "
+msgstr ""
+
+#: includes/products.php:637
+msgid "You need to click 'update only' and select the identifier for update(sku,title or ID)."
+msgstr ""
+
+#: includes/products.php:704
+msgid "DATA MAPPING: Drag and drop excel columns on the right to product properties on the left."
+msgstr ""
+
+#: includes/products.php:714
+msgid "UPDATE ONLY"
+msgstr ""
+
+#: includes/products.php:716
+msgid "update by..."
+msgstr ""
+
+#: includes/products.php:718
+msgid "SKU - PRO VERSION"
+msgstr ""
+
+#: includes/products.php:728
+msgid "Always add new Products even if title is the same / will not work for variable products"
+msgstr ""
+
+#: includes/products.php:732
+msgid "Select Parent Categories as well "
+msgstr ""
+
+#: includes/products.php:736
+msgid "Create only Simple Product with Attributes, if any  "
+msgstr ""
+
+#: includes/products.php:736
+msgid "ONLY,"
+msgstr ""
+
+#: includes/products.php:736
+msgid "Not Variations "
+msgstr ""
+
+#: includes/products.php:742
+msgid "Set Last Variation as Default (Variable Products)"
+msgstr ""
+
+#: includes/products.php:745
+msgid "used in cases for adding multiple attribute combinations without having double rows for same attribute value that has been already imported"
+msgstr ""
+
+#: includes/products.php:746
+msgid "Assign Attribute to product even if value is null"
+msgstr ""
+
+#: includes/products.php:751
+msgid "used for variable products cases where all variations share same  prices, dimensions, descriptions, shipping, tax, images and in general data"
+msgstr ""
+
+#: includes/products.php:752
+msgid "Add Variable product from 1 row with attrributes comma separated "
+msgstr ""
+
+#: includes/products.php:784
+msgid "PRODUCT FIELDS"
+msgstr ""
+
+#: includes/products.php:792
+msgid "ID (for update purpose only) "
+msgstr ""
+
+#: includes/products.php:796
+msgid "URL/SLUG "
+msgstr ""
+
+#: includes/products.php:811
+msgid "IMAGE - PRO"
+msgstr ""
+
+#: includes/products.php:815
+msgid "IMAGE GALLERY - PRO"
+msgstr ""
+
+#: includes/products.php:824
+msgid "CUSTOM FIELDS - PRO VERSION"
+msgstr ""
+
+#: includes/products.php:834
+msgid "You dont have any custom fields associated to any product. If there are, please Just create a test product from WordPress backend -add just title and press Publish-. After this action, you will be able to view here any custom field, from Plugins like ACF. In the end you can then delete this test product."
+msgstr ""
+
+#: includes/products.php:840
+msgid "PRODUCT TAXONOMIES - ATTRIBUTES"
+msgstr ""
+
+#: includes/products.php:960
+msgid "For Sale price of"
+msgstr ""
+
+#: includes/products.php:960
+#: includes/products.php:967
+#: includes/products.php:975
+#: includes/products.php:983
+#: includes/products.php:994
+#: includes/products.php:1002
+msgid "you need numbers entered"
+msgstr ""
+
+#: includes/products.php:967
+msgid "For Regular price of"
+msgstr ""
+
+#: includes/products.php:975
+msgid "For Weight of"
+msgstr ""
+
+#: includes/products.php:983
+msgid "For Stock of"
+msgstr ""
+
+#: includes/products.php:994
+msgid "For Length of"
+msgstr ""
+
+#: includes/products.php:1002
+msgid "For Width of"
+msgstr ""
+
+#: includes/products.php:1150
+#: includes/products.php:1203
+msgid "already exists. Updated"
+msgstr ""
+
+#: includes/products.php:1154
+msgid "Does not exist. You need to import based on titles"
+msgstr ""
+
+#: includes/products.php:1158
+msgid "already exists. "
+msgstr ""
+
+#: includes/products.php:1347
+msgid "GO VIEW YOUR PRODUCTS!"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:29
+msgid "We are sorry to see you go..."
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:30
+msgid "If you would be kind enough, please tell us why you're deactivating?"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:31
+msgid "Please tell us which plugin?"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:32
+msgid "Please tell us the reason so we can improve the plugin"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:33
+msgid "Do not send my e-mail address with this feedback"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:35
+msgid "Please give us any feedback that could help us improve"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:37
+msgid "Cancel"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:38
+msgid "Skip &amp; Deactivate"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:39
+msgid "Submit &amp; Deactivate"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:40
+msgid "Please wait"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:41
+msgid "Thank you!"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:49
+msgid "The plugin suddenly stopped working"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:50
+msgid "The plugin broke my site"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:51
+msgid "I don't need this plugin any more"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:52
+msgid "I found a better plugin"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:53
+msgid "It's a temporary deactivation, I'm troubleshooting"
+msgstr ""
+
+#: lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php:54
+msgid "Other"
+msgstr ""
+
+#: store-migration-excel.php:170
+msgid "Add your Email below & get "
+msgstr ""
+
+#: store-migration-excel.php:170
+msgid " in our PRO plugins! "
+msgstr ""
+
+#: store-migration-excel.php:175
+msgid "Sign up"
+msgstr ""
+
+#: store-migration-excel.php:176
+msgid "By adding your email you will be able to use your email as coupon to a future purchase at "
+msgstr ""
+
+#: store-migration-excel.php:252
+msgid "Settings"
+msgstr ""
+
+#: store-migration-excel.php:280
+msgid "Import Variable, Affiliate, Subscription Products with excel"
+msgstr ""
+
+#: store-migration-excel.php:281
+msgid "WPML support for Product Translations Import "
+msgstr ""
+
+#: store-migration-excel.php:282
+msgid "ACF & YOAST SEO META support for Import in products"
+msgstr ""
+
+#: store-migration-excel.php:283
+msgid "export Variable, Affiliate, Subscription Products to excel"
+msgstr ""
+
+#: store-migration-excel.php:284
+msgid "Products custom Fields Support"
+msgstr ""
+
+#: store-migration-excel.php:285
+msgid "Bulk import taxonomy terms for products  with excel"
+msgstr ""
+
+#: store-migration-excel.php:286
+msgid "import Product Reviews  with excel"
+msgstr ""
+
+#: store-migration-excel.php:287
+msgid "export Product Reviews  to excel"
+msgstr ""
+
+#: store-migration-excel.php:288
+msgid "import Orders with variable products"
+msgstr ""
+
+#: store-migration-excel.php:289
+msgid "import Orders & apply Coupons"
+msgstr ""
+
+#: store-migration-excel.php:290
+msgid "import/export WooCommerce Subscriptions"
+msgstr ""
+
+#: store-migration-excel.php:291
+msgid "create Customer during Order import"
+msgstr ""
+
+#: store-migration-excel.php:292
+msgid "Customers custom fields Support"
+msgstr ""
+
+#: store-migration-excel.php:293
+msgid ".. and a lot more!"
+msgstr ""
+
+#: store-migration-excel.php:294
+msgid "GET IT HERE"
+msgstr ""

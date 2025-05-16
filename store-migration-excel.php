@@ -16,7 +16,7 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Created On: 09-09-2020
- * Updated On: 25-11-2024
+ * Updated On: 16-05-2025
  *
  * Text Domain: store-migration-products-orders-import-export-with-excel
  * Domain Path: /langs
