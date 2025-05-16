@@ -1,8 +1,11 @@
 <?php
+/**
+ * Migrate Import Export WooCommerce Store with Excel - StoreMigrationWooCommerce_Coupons Class
+ *
+ * @author  WPFactory
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 
 if ( ! class_exists( 'PhpOffice\PhpSpreadsheet\IOFactory' ) ) {
@@ -22,18 +25,18 @@ class StoreMigrationWooCommerce_Coupons {
 		?>
 		<h2>
 		<?php esc_html_e( 'IMPORT / UPDATE Coupons', 'store-migration-products-orders-import-export-with-excel' ); ?>
-		</h2>	
-			
+		</h2>
+
 		<p>
 			<?php
 			esc_html_e( 'Download the sample excel file, save it and add your Product Reviews. Upload it using the form below.', 'store-migration-products-orders-import-export-with-excel' );
 			?>
 						<a href='<?php echo plugins_url( '../example_excel/import_coupons.xlsx', __FILE__ ); ?>'>
 				<?php esc_html_e( 'Coupons Excel Sample', 'store-migration-products-orders-import-export-with-excel' ); ?>
-			</a>		
+			</a>
 		</p>
-								  
-		<div>			
+
+		<div>
 			<form method="post" id='coupons_import' enctype="multipart/form-data" action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=coupons' ); ?>">
 
 				<table class="form-table">
@@ -44,15 +47,15 @@ class StoreMigrationWooCommerce_Coupons {
 								<div class="uploader">
 									<img src="" class='userSelected'/>
 									<input type="file"  required name="file" class="couponsImportFile"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-								</div>						
+								</div>
 							</td>
 						</tr>
 				</table>
 				<?php submit_button( esc_html__( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'upload' ); ?>
-			</form>	
+			</form>
 			<div class='result'>
 				<?php $this->importCoupons(); ?>
-			</div>					
+			</div>
 		</div>
 		<?php
 	}
@@ -86,7 +89,7 @@ class StoreMigrationWooCommerce_Coupons {
 					?>
 					<span class='thisNum'></span>
 					<div class='ajaxResponse'></div>
-						
+
 					<div class='woo-form-wrapper'>
 						<form method='POST' id ='coupons_process' action= "<?php print admin_url( 'admin.php??page=store-migration-woocommerce-pro&tab=reviews' ); ?>">
 
@@ -96,13 +99,13 @@ class StoreMigrationWooCommerce_Coupons {
 							<p class='proVersion'>
 								<i ><b > <?php esc_html_e( 'Auto Match Columns - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?> <input type='checkbox' disabled  /> </b></i>
 							</p>
-							
-							<div class='columns3 border'>	
-							
+
+							<div class='columns3 border'>
+
 								<h2>
 									<?php esc_html_e( 'EXCEL COLUMNS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-								
+
 								<p>
 									<?php
 									foreach ( $cellIterator as $cell ) {
@@ -110,8 +113,8 @@ class StoreMigrationWooCommerce_Coupons {
 									}
 									?>
 																	</p>
-								
-		   
+
+
 								<input type='hidden' name='couponsfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
 								<input type='hidden' name='action' value='importCoupons_process' />
@@ -119,17 +122,17 @@ class StoreMigrationWooCommerce_Coupons {
 									wp_nonce_field( 'excel_process', 'secNonce' );
 									submit_button( __( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'check' );
 								?>
-																
+
 							</div>
-							
+
 
 							<div class='columns2'>
-							
+
 								<h2>
 									<?php esc_html_e( 'COUPONS FIELDS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-								
-								
+
+
 								<?php
 
 								$post_meta = array( 'coupon_code', 'coupon_amount', 'coupon_description', 'status', 'author', 'discount_type', 'individual_use', 'product_ids', 'exclude_product_ids', 'usage_limit', 'expiry_date', 'apply_before_tax', 'free_shipping' );
@@ -162,14 +165,14 @@ class StoreMigrationWooCommerce_Coupons {
 								?>
 
 
-								
-							</div>	
-							
-							
-			
+
+							</div>
+
+
+
 						</form>
 					</div>
-					
+
 					<?php
 					move_uploaded_file( $_FILES['file']['tmp_name'], plugin_dir_path( __FILE__ ) . 'import_coupons.xlsx' );
 
@@ -293,11 +296,11 @@ class StoreMigrationWooCommerce_Coupons {
 
 	public function exportCouponsForm() {
 		?>
-				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i> 
+				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i>
 					<?php esc_html_e( 'Filter & Fields to Show', 'store-migration-products-orders-import-export-with-excel' ); ?>
 				</p>
-				
-				<form name='exportCouponsForm' id='exportCouponsForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportCoupons' ); ?>" >	
+
+				<form name='exportCouponsForm' id='exportCouponsForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportCoupons' ); ?>" >
 					<table class='wp-list-table widefat fixed table table-bordered'>
 
 						<tr>
@@ -316,20 +319,20 @@ class StoreMigrationWooCommerce_Coupons {
 							<td>
 								<input type='number' min="1" max="100000" style='width:100%;'  name='posts_per_page' id='posts_per_page' placeholder='<?php _e( 'Number to display..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							</td>
-							
+
 							<td>
 							<?php esc_html_e( 'To Creation Date', 'store-migration-products-orders-import-export-with-excel' ); ?>
-							</td>	
+							</td>
 							<td>
 							<input type='date' style='width:100%;'  name='toDate' id='toDate' placeholder='<?php esc_html_e( 'registration date', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
-							</td>							
-							
+							</td>
+
 							<input type='hidden' name='offset' style='width:100%;' id='offset' placeholder='<?php esc_html_e( 'Start from..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							<input type='hidden' name='start' /><input type='hidden' name='total' />
-							
+
 							<td></td><td></td>
 						</tr>
-						
+
 					</table>
 
 					<table class='wp-list-table widefat fixed table table-bordered tax_checks'>
@@ -342,7 +345,7 @@ class StoreMigrationWooCommerce_Coupons {
 							<td>
 								<input type="checkbox" name="check_all1" id="check_all1" ><label for="check_all1"><?php esc_html_e( 'Check All', 'store-migration-products-orders-import-export-with-excel' ); ?></label>
 							</td>
-						</tr>						
+						</tr>
 						<tr>
 							<?php
 							$cols = array();
@@ -359,8 +362,8 @@ class StoreMigrationWooCommerce_Coupons {
 							?>
 						</tr>
 					</table>
-		
-							
+
+
 					<input type='hidden' name='columnsToShow' value='1'  />
 					<input type='hidden' id='action' name='action' value='exportCoupons_process' />
 					<?php wp_nonce_field( 'columnsToShow' ); ?>
@@ -368,7 +371,7 @@ class StoreMigrationWooCommerce_Coupons {
 					<?php submit_button( esc_html__( 'Search', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'Search' ); ?>
 
 				</form>
-			
+
 			<div class='resultExport'>
 				<?php $this->exportCoupons(); ?>
 			</div>
@@ -431,7 +434,7 @@ class StoreMigrationWooCommerce_Coupons {
 					<?php esc_html_e( 'Wait... Download is loading...', 'store-migration-products-orders-import-export-with-excel' ); ?>
 					<b class='totalPosts'  >
 						<?php print esc_html( $query->post_count ); ?>
-					</b>					
+					</b>
 				</p>
 
 				<?php
@@ -445,14 +448,14 @@ class StoreMigrationWooCommerce_Coupons {
 				$column_name = array( 'coupon_code', 'coupon_description', 'status', 'author', 'coupon_amount', 'discount_type', 'individual_use', 'product_ids', 'exclude_product_ids', 'usage_limit', 'expiry_date', 'apply_before_tax', 'free_shipping' );
 
 				?>
-				
+
 				<div id="myProgress">
 					<div id="myBar"></div>
 				</div>
 				<div class='exportTableWrapper'>
 					<table id='toExport'>
 						<thead>
-							<tr> 
+							<tr>
 								<th>
 									<?php esc_html_e( 'ID', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</th>
@@ -469,10 +472,10 @@ class StoreMigrationWooCommerce_Coupons {
 							</tr>
 						</thead>
 						<tbody class='tableExportAjax'>
-						</tbody>	
+						</tbody>
 					</table>
-				</div>	
-			
+				</div>
+
 				<?php
 			} else {
 				?>
@@ -541,34 +544,34 @@ class StoreMigrationWooCommerce_Coupons {
 											<tr>
 							<td><?php print esc_attr( get_the_ID() ); ?></td>
 
-							<?php if ( $_REQUEST['toShowcoupon_code'] ) { ?>								 
+							<?php if ( $_REQUEST['toShowcoupon_code'] ) { ?>
 								<td><?php esc_html( the_title() ); ?></td>
-							<?php } ?>					
-							<?php if ( isset( $_REQUEST['toShowcoupon_description'] ) ) { ?>									
+							<?php } ?>
+							<?php if ( isset( $_REQUEST['toShowcoupon_description'] ) ) { ?>
 								<td>
 									<?php print esc_html( get_post_field( 'post_excerpt', get_the_ID() ) ); ?>
 								</td>
 							<?php } ?>
-							<?php if ( isset( $_REQUEST['toShowstatus'] ) ) { ?>								 
+							<?php if ( isset( $_REQUEST['toShowstatus'] ) ) { ?>
 								<td>
-									<?php print esc_html( get_post_field( 'post_status', get_the_ID() ) ); ?>							
+									<?php print esc_html( get_post_field( 'post_status', get_the_ID() ) ); ?>
 								</td>
-							<?php } ?>	
-							<?php if ( isset( $_REQUEST['toShowauthor'] ) ) { ?>								 
+							<?php } ?>
+							<?php if ( isset( $_REQUEST['toShowauthor'] ) ) { ?>
 								<td>
-									<?php print esc_html( get_post_field( 'post_author', get_the_ID() ) ); ?>							
+									<?php print esc_html( get_post_field( 'post_author', get_the_ID() ) ); ?>
 								</td>
-							<?php } ?>								
+							<?php } ?>
 							<?php
 							foreach ( $cols as $meta ) {
 								if ( isset( $_REQUEST[ 'toShow' . $meta ] ) && $_REQUEST[ 'toShow' . $meta ] !== 'toShowcoupon_description' && $_REQUEST[ 'toShow' . $meta ] !== 'toShowstatus' && $_REQUEST[ 'toShow' . $meta ] !== 'toShowauthor' && $_REQUEST[ 'toShow' . $meta ] !== 'toShowcoupon_code' ) {
 									?>
-															
+
 										<td>
 										<?php
 										print esc_html( get_post_meta( get_the_ID(), $meta, true ) );
 										?>
-										</td>                                 
+										</td>
 									<?php
 
 								}

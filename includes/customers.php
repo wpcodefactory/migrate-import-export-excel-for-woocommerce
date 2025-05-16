@@ -1,8 +1,11 @@
 <?php
+/**
+ * Migrate Import Export WooCommerce Store with Excel - StoreMigrationWooCommerce_Customers Class
+ *
+ * @author  WPFactory
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'PhpOffice\PhpSpreadsheet\IOFactory' ) ) {
 	include plugin_dir_path( __FILE__ ) . '../Classes/vendor/autoload.php';
@@ -275,16 +278,16 @@ class StoreMigrationWooCommerce_Customers {
 		?>
 		<h2>
 		<?php esc_html_e( 'IMPORT / UPDATE Customers', 'store-migration-products-orders-import-export-with-excel' ); ?>
-		</h2>	
+		</h2>
 		<p>
-			<?php esc_html_e( 'Download the sample excel file, save it and add your Customers. Upload it using the form below.', 'store-migration-products-orders-import-export-with-excel' ); ?> 
+			<?php esc_html_e( 'Download the sample excel file, save it and add your Customers. Upload it using the form below.', 'store-migration-products-orders-import-export-with-excel' ); ?>
 			<a href='<?php echo plugins_url( '../example_excel/import-customers.xlsx', __FILE__ ); ?>'>
 				<?php esc_html_e( 'Customers Excel Sample', 'store-migration-products-orders-import-export-with-excel' ); ?>
-			</a>		
+			</a>
 		</p>
 
-				
-		<div>			
+
+		<div>
 			<form method="post" id='user_import' enctype="multipart/form-data" action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=customers' ); ?>">
 
 				<table class="form-table">
@@ -295,15 +298,15 @@ class StoreMigrationWooCommerce_Customers {
 								<div class="uploader">
 									<img src="" class='userSelected'/>
 									<input type="file"  required name="file" class="usersImportFile"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-								</div>						
+								</div>
 							</td>
 						</tr>
 				</table>
 				<?php submit_button( esc_html__( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'upload' ); ?>
-			</form>	
+			</form>
 			<div class='result'>
 				<?php $this->importUsers(); ?>
-			</div>					
+			</div>
 		</div>
 		<?php
 	}
@@ -345,7 +348,7 @@ class StoreMigrationWooCommerce_Customers {
 					?>
 					<span class='thisNum'></span>
 					<div class='ajaxResponse'></div>
-						
+
 					<div class='woo-form-wrapper'>
 						<form method='POST' id ='user_process' action= "<?php print admin_url( 'admin.php?page=store-migration-woocommerce&tab=customers' ); ?>">
 
@@ -355,19 +358,19 @@ class StoreMigrationWooCommerce_Customers {
 							<p class='proVersion'>
 								<i ><b > <?php esc_html_e( 'Auto Match Columns - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?> <input type='checkbox' disabled  /> </b></i>
 							</p>
-							
-							<div class='columns3 border'>	
+
+							<div class='columns3 border'>
 
 								<p class='proVersion'>
 									<input type='checkbox'  disabled readonly  /> <b> <?php esc_html_e( 'Send Email to newly created Users - PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?> </b>
 								</p>
 								<p class='proVersion'>
 									<input type='checkbox' disabled readonly /> <b> <?php esc_html_e( 'Update Existing Users - PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?> </b>
-								</p>							
+								</p>
 								<h2>
 									<?php _e( 'EXCEL COLUMNS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-								
+
 								<p>
 									<?php
 									foreach ( $cellIterator as $cell ) {
@@ -375,8 +378,8 @@ class StoreMigrationWooCommerce_Customers {
 									}
 									?>
 																	</p>
-								
-		   
+
+
 								<input type='hidden' name='customersfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
 								<input type='hidden' name='action' value='importCustomers_process' />
@@ -384,18 +387,18 @@ class StoreMigrationWooCommerce_Customers {
 									wp_nonce_field( 'excel_process', 'secNonce' );
 									submit_button( esc_html( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'check' );
 								?>
-																
+
 							</div>
-							
+
 							<?php
 								$dontUse = array( 'syntax_highlighting', 'rich_editing', 'comment_shortcuts', 'admin_color', 'wp_user_level', 'dismissed_wp_pointers', 'show_welcome_panel', 'wp_dashboard_quick_press_last_post_id', 'session_tokens', 'use_ssl', 'show_admin_bar_front', '_woocommerce_persistent_cart_1', 'closedpostboxes_dashboard', 'dismissed_store_notice_setting_moved_notice', 'dismissed_no_secure_connection_notice', 'jetpack_tracks_anon_id', 'last_update', '_woocommerce_tracks_anon_id', 'tgmpa_dismissed_notice_tgm_foody_pro', 'dismissed_wc_admin_notice', 'paying_customer', 'erp_hr_disable_notification', 'erp_hr_disable_notification', 'wp_user-settings-time', 'wp_user-settings', 'wc_last_active', 'metaboxhidden_dashboard', 'wp_capabilities', 'locale' );
 							?>
 							<div class='columns2'>
-							
+
 								<h2>
 									<?php esc_html_e( 'CUSTOMER FIELDS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-								
+
 								<p class=''>
 									<b><?php esc_html_e( 'EMAIL ', 'store-migration-products-orders-import-export-with-excel' ); ?></b><input type='text'  name='email' required readonly class='droppable' placeholder='email'  />
 								</p>
@@ -405,10 +408,10 @@ class StoreMigrationWooCommerce_Customers {
 
 								<p class=''>
 									<b><?php esc_html_e( 'PASSWORD ', 'store-migration-products-orders-import-export-with-excel' ); ?></b><input type='text'  name='password' required readonly class='droppable' placeholder='password'  />
-								</p>	
+								</p>
 								<p class=''>
 									<b><?php esc_html_e( 'URL - WEBSITE ', 'store-migration-products-orders-import-export-with-excel' ); ?></b><input type='text'  name='url' required readonly class='droppable' placeholder='url'  />
-								</p>								
+								</p>
 								<?php
 								if ( ! empty( $this->customers_meta_keys() ) ) {
 									foreach ( $this->customers_meta_keys() as $meta ) {
@@ -422,14 +425,14 @@ class StoreMigrationWooCommerce_Customers {
 								?>
 
 
-								
-							</div>	
-							
-							
-			
+
+							</div>
+
+
+
 						</form>
 					</div>
-					
+
 					<?php
 					move_uploaded_file( $_FILES['file']['tmp_name'], plugin_dir_path( __FILE__ ) . 'import_customers.xlsx' );
 
@@ -551,28 +554,28 @@ class StoreMigrationWooCommerce_Customers {
 
 	public function exportUsersForm() {
 		?>
-				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i> 
+				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i>
 					<?php esc_html_e( 'Filter & Fields to Show', 'store-migration-products-orders-import-export-with-excel' ); ?>
 				</p>
-				
-				<form name='exportUsersForm' id='exportUsersForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportCustomers' ); ?>" >	
+
+				<form name='exportUsersForm' id='exportUsersForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportCustomers' ); ?>" >
 					<table class='wp-list-table widefat fixed table table-bordered'>
 
 					<tr>
 
-							
+
 							<td>
 							<?php esc_html_e( 'From Creation Date', 'store-migration-products-orders-import-export-with-excel' ); ?>
-							</td>	
+							</td>
 							<td>
 							<input type='date' style='width:100%;'  name='fromDate' id='fromDate' placeholder='<?php esc_html_e( 'registration date', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
-							</td>	
+							</td>
 							<td>
 							<?php esc_html_e( 'To Creation Date', 'store-migration-products-orders-import-export-with-excel' ); ?>
-							</td>	
+							</td>
 							<td>
 							<input type='date' style='width:100%;'  name='toDate' id='toDate' placeholder='<?php esc_html_e( 'registration date', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
-							</td>								
+							</td>
 					</tr>
 						<tr>
 							<td>
@@ -581,15 +584,15 @@ class StoreMigrationWooCommerce_Customers {
 							<td>
 								<input type='number' min="1" max="100000" style='width:100%;'  name='posts_per_page' id='posts_per_page' placeholder='<?php esc_html_e( 'Number to display..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							</td>
-							
-						
-							
+
+
+
 							<input type='hidden' name='offset' style='width:100%;' id='offset' placeholder='<?php esc_html_e( 'Start from..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							<input type='hidden' name='start' /><input type='hidden' name='total' />
-							
+
 							<td></td><td></td>
 						</tr>
-						
+
 					</table>
 
 					<table class='wp-list-table widefat fixed table table-bordered tax_checks'>
@@ -602,7 +605,7 @@ class StoreMigrationWooCommerce_Customers {
 							<td>
 								<input type="checkbox" name="check_all1" id="check_all1" ><label for="check_all1"><?php esc_html_e( 'Check All', 'store-migration-products-orders-import-export-with-excel' ); ?></label>
 							</td>
-						</tr>						
+						</tr>
 						<tr>
 							<?php
 							$cols = array();
@@ -634,8 +637,8 @@ class StoreMigrationWooCommerce_Customers {
 							?>
 						</tr>
 					</table>
-		
-							
+
+
 					<input type='hidden' name='columnsToShow' value='1'  />
 					<input type='hidden' id='action' name='action' value='exportUsers_process' />
 					<?php wp_nonce_field( 'columnsToShow' ); ?>
@@ -643,7 +646,7 @@ class StoreMigrationWooCommerce_Customers {
 					<?php submit_button( __( 'Search', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'Search' ); ?>
 
 				</form>
-			
+
 			<div class='resultExport'>
 				<?php $this->exportUsers(); ?>
 			</div>
@@ -695,7 +698,7 @@ class StoreMigrationWooCommerce_Customers {
 					<?php esc_html_e( 'Wait... Download is loading...', 'store-migration-products-orders-import-export-with-excel' ); ?>
 					<b class='totalPosts'  >
 						<?php print esc_html( count( $users ) ); ?>
-					</b>					
+					</b>
 				</p>
 
 				<?php
@@ -709,14 +712,14 @@ class StoreMigrationWooCommerce_Customers {
 				$column_name = array( 'user_pass', 'user_login', 'user_url', 'user_email', 'role' );
 
 				?>
-				
+
 				<div id="myProgress">
 					<div id="myBar"></div>
 				</div>
 				<div class='exportTableWrapper'>
 					<table id='toExport'>
 						<thead>
-							<tr> 
+							<tr>
 								<th>
 									<?php esc_html_e( 'ID', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</th>
@@ -747,10 +750,10 @@ class StoreMigrationWooCommerce_Customers {
 							</tr>
 						</thead>
 						<tbody class='tableExportAjax'>
-						</tbody>	
+						</tbody>
 					</table>
-				</div>	
-			
+				</div>
+
 				<?php
 			} else {
 				?>
@@ -808,7 +811,7 @@ class StoreMigrationWooCommerce_Customers {
 					$user_roles = $user->roles;
 					?>
 											<tr>
-							<td><?php print esc_attr( $user->ID ); ?></td>					
+							<td><?php print esc_attr( $user->ID ); ?></td>
 							<?php
 							foreach ( $cols as $meta ) {
 								if ( isset( $_REQUEST[ 'toShow' . $meta ] ) ) {
@@ -823,7 +826,7 @@ class StoreMigrationWooCommerce_Customers {
 										print esc_html( $user->$meta );
 									}
 									?>
-										</td>                                 
+										</td>
 									<?php
 								}
 							}

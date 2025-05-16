@@ -1,8 +1,11 @@
 <?php
+/**
+ * Migrate Import Export WooCommerce Store with Excel - StoreMigrationWooCommerce_Products Class
+ *
+ * @author  WPFactory
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'PhpOffice\PhpSpreadsheet\IOFactory' ) ) {
 	include plugin_dir_path( __FILE__ ) . '../Classes/vendor/autoload.php';
@@ -30,13 +33,13 @@ class StoreMigrationWooCommerce_Products {
 			global $wpdb;
 			$post_type = 'product';
 			$query     = "
-				SELECT DISTINCT($wpdb->postmeta.meta_key) 
-				FROM $wpdb->posts 
-				LEFT JOIN $wpdb->postmeta 
-				ON $wpdb->posts.ID = $wpdb->postmeta.post_id 
-				WHERE $wpdb->posts.post_type = '%s' 
-				AND $wpdb->postmeta.meta_key != '' 
-				AND $wpdb->postmeta.meta_key NOT RegExp '(^[_0-9].+$)' 
+				SELECT DISTINCT($wpdb->postmeta.meta_key)
+				FROM $wpdb->posts
+				LEFT JOIN $wpdb->postmeta
+				ON $wpdb->posts.ID = $wpdb->postmeta.post_id
+				WHERE $wpdb->posts.post_type = '%s'
+				AND $wpdb->postmeta.meta_key != ''
+				AND $wpdb->postmeta.meta_key NOT RegExp '(^[_0-9].+$)'
 				AND $wpdb->postmeta.meta_key NOT RegExp '(^[0-9]+$)'
 			";
 			$meta_keys = $wpdb->get_col( $wpdb->prepare( $query, $post_type ) );
@@ -55,7 +58,7 @@ class StoreMigrationWooCommerce_Products {
 		<p>
 			<i><?php esc_html_e( 'Important Note: always save the generated export file in xlsx format to a new excel for import use.', 'store-migration-products-orders-import-export-with-excel' ); ?></i>
 		</p>
-		<div>    
+		<div>
 			<?php print "<div class='result'>" . $this->exportProductsForm() . '</div>'; ?>
 		</div>
 		<?php
@@ -92,21 +95,21 @@ class StoreMigrationWooCommerce_Products {
 		);
 		if ( $query->have_posts() ) {
 			?>
-				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i> 
+				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i>
 					<?php esc_html_e( 'Filter & Fields to Show', 'store-migration-products-orders-import-export-with-excel' ); ?>
 				</p>
-				
+
 				<form name='selectTaxonomy' id='selectTaxonomy' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportProducts' ); ?>" >
-					<table class='wp-list-table widefat fixed table table-bordered'>	
+					<table class='wp-list-table widefat fixed table table-bordered'>
 						<tr>
 							<td  class='proVersion'><?php esc_html_e( 'filter by Taxonomy - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?></td>
 							<td><?php $this->vocabularySelect(); ?></td>
 						</tr>
 					</table>
 				</form>
-				
-				<form name='exportProductsForm' id='exportProductsForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportProducts' ); ?>" >	
-					<table class='wp-list-table widefat fixed table table-bordered'>	
+
+				<form name='exportProductsForm' id='exportProductsForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportProducts' ); ?>" >
+					<table class='wp-list-table widefat fixed table table-bordered'>
 
 						<tr>
 							<td>
@@ -152,7 +155,7 @@ class StoreMigrationWooCommerce_Products {
 							<td class='proVersion'>
 								<input type='number' readonly disabled placeholder='<?php esc_html_e( 'Sale Price', 'store-migration-products-orders-import-export-with-excel' ); ?>'/>
 							</td>
-							
+
 							<td class='proVersion'>
 								<?php esc_html_e( 'Sale Price Selector', 'store-migration-products-orders-import-export-with-excel' ); ?><?php esc_html_e( ' - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?>
 							</td>
@@ -163,8 +166,8 @@ class StoreMigrationWooCommerce_Products {
 									<option value="<="><=</option>
 									<option value="<"><</option>
 									<option value="==">==</option>
-									<option value="!=">!=</option>						
-								</select>	
+									<option value="!=">!=</option>
+								</select>
 							</td>
 						</tr>
 
@@ -177,13 +180,13 @@ class StoreMigrationWooCommerce_Products {
 							</td>
 							<input type='hidden' name='offset' style='width:100%;' id='offset' placeholder='<?php esc_html_e( 'Start from..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							<input type='hidden' name='start' /><input type='hidden' name='total' />
-							
+
 							<td></td><td></td>
 						</tr>
-						
+
 						<?php $taxonomy_objects = get_object_taxonomies( 'product', 'objects' ); ?>
 					</table>
-					
+
 					<?php $taxonomy_objects = get_object_taxonomies( 'product', 'objects' ); ?>
 
 
@@ -197,7 +200,7 @@ class StoreMigrationWooCommerce_Products {
 							<td>
 								<input type="checkbox" name="check_all1" id="check_all1" ><label for="check_all1"><?php esc_html_e( 'Check All', 'store-migration-products-orders-import-export-with-excel' ); ?></label>
 							</td>
-						</tr>						
+						</tr>
 						<tr>
 							<?php
 							$cols    = array();
@@ -221,8 +224,8 @@ class StoreMigrationWooCommerce_Products {
 							?>
 						</tr>
 					</table>
-					
-					
+
+
 					<table class='wp-list-table widefat fixed table table-bordered fields_checks'>
 						<legend>
 							<h2>
@@ -233,13 +236,13 @@ class StoreMigrationWooCommerce_Products {
 							<td>
 								<input type="checkbox" name="check_all2" id="check_all2" ><label for="check_all2"><?php _e( 'Check All', 'store-migration-products-orders-import-export-with-excel' ); ?></label>
 							</td>
-						</tr>						
+						</tr>
 						<?php
 						$cols = array( 'title', 'description', 'excerpt', 'post_name', '_variation_description', '_sku', '_regular_price', '_sale_price', '_weight', '_stock', '_stock_status', '_width', '_length', '_height', '_downloadable', '_download_limit', '_download_expiry', '_virtual', '_purchase_note', '_upsell_ids', '_crosssell_ids', '_thumbnail_id', '_product_image_gallery', '_sold_individually', '_backorders', '_featured', '_tax_status', '_tax_class' );
 						?>
-						
+
 						<tr>
-						
+
 						<?php
 						$checked = '';
 						foreach ( $cols as $col ) {
@@ -259,10 +262,10 @@ class StoreMigrationWooCommerce_Products {
 						}
 
 						?>
-						
+
 						</tr>
-					</table>			
-							
+					</table>
+
 					<input type='hidden' name='columnsToShow' value='1'  />
 					<input type='hidden' id='action' name='action' value='export_process' />
 					<?php wp_nonce_field( 'columnsToShow' ); ?>
@@ -270,7 +273,7 @@ class StoreMigrationWooCommerce_Products {
 					<?php submit_button( esc_html__( 'Search', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'Search' ); ?>
 
 				</form>
-			
+
 			<div class='resultExport'>
 				<?php $this->exportProducts(); ?>
 			</div>
@@ -346,7 +349,7 @@ class StoreMigrationWooCommerce_Products {
 				?>
 				<p class='message error'>
 					<?php esc_html_e( 'Wait... Download is loading...', 'store-migration-products-orders-import-export-with-excel' ); ?>
-					<b class='totalPosts'  ><?php print esc_html( $query->post_count ); ?></b>					
+					<b class='totalPosts'  ><?php print esc_html( $query->post_count ); ?></b>
 				</p>
 
 				<?php
@@ -363,16 +366,16 @@ class StoreMigrationWooCommerce_Products {
 			$column_name = array( esc_html__( 'TITLE', 'store-migration-products-orders-import-export-with-excel' ), esc_html__( 'DESCRIPTION', 'store-migration-products-orders-import-export-with-excel' ), esc_html__( 'EXCERPT', 'store-migration-products-orders-import-export-with-excel' ), esc_html__( 'POST NAME', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'VARIATION DESCRIPTION', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'SKU', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'REGULAR PRICE', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'SALE PRICE', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'WEIGHT', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'STOCK', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'STOCK STATUS', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'WIDTH', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'LENGTH', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'HEIGHT', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'DOWNLOADABLE', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'DOWNLOAD LIMIT', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'DOWNLOAD EXPIRY', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'VIRTUAL', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'PURCHASE NOTE', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'UPSELL IDS', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'CROSSSELL IDS', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'THUMBNAIL ID', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'PRODUCT IMAGE GALLERY', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'SOLD INDIVIDUALLY', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'BACKORDERS', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'FEATURED', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'TAX STATUS', 'store-migration-products-orders-import-export-with-excel' ), ' ' . esc_html__( 'TAX CLASS', 'store-migration-products-orders-import-export-with-excel' ) );
 
 			?>
-			
+
 			<div id="myProgress">
 				<div id="myBar"></div>
 			</div>
-			
+
 
 			<div class='exportTableWrapper'>
 				<table id='toExport'>
 					<thead>
-						<tr> 
+						<tr>
 							<th>
 								<?php esc_html_e( 'ID', 'store-migration-products-orders-import-export-with-excel' ); ?>
 							</th>
@@ -397,10 +400,10 @@ class StoreMigrationWooCommerce_Products {
 						</tr>
 					</thead>
 					<tbody class='tableExportAjax'>
-					</tbody>	
+					</tbody>
 				</table>
-			</div>	
-			
+			</div>
+
 			<?php
 
 		}//check request
@@ -475,32 +478,32 @@ class StoreMigrationWooCommerce_Products {
 
 					?>
 											<tr>
-							<td><?php print esc_attr( get_the_ID() ); ?></td>					
-							<?php if ( $_REQUEST['toShowtitle'] ) { ?>								 
+							<td><?php print esc_attr( get_the_ID() ); ?></td>
+							<?php if ( $_REQUEST['toShowtitle'] ) { ?>
 								<td><?php esc_html( the_title() ); ?></td>
-							<?php } ?>					
-							<?php if ( isset( $_REQUEST['toShowdescription'] ) ) { ?>									
+							<?php } ?>
+							<?php if ( isset( $_REQUEST['toShowdescription'] ) ) { ?>
 								<td>
 									<?php print esc_html( get_post_field( 'post_content', get_the_ID() ) ); ?>
 								</td>
 							<?php } ?>
-							<?php if ( isset( $_REQUEST['toShowexcerpt'] ) ) { ?>								 
+							<?php if ( isset( $_REQUEST['toShowexcerpt'] ) ) { ?>
 								<td>
-									<?php print esc_html( get_post_field( 'post_excerpt', get_the_ID() ) ); ?>							
+									<?php print esc_html( get_post_field( 'post_excerpt', get_the_ID() ) ); ?>
 								</td>
-							<?php } ?>	
-							<?php if ( isset( $_REQUEST['toShowpost_name'] ) ) { ?>								 
+							<?php } ?>
+							<?php if ( isset( $_REQUEST['toShowpost_name'] ) ) { ?>
 									<td>
 										<?php print esc_html( $post->post_name ); ?>
 										<?php // print esc_html(get_post_field('post_name', get_the_ID()) )  ; ?>
 									</td>
-							<?php } ?>						
+							<?php } ?>
 							<?php if ( isset( $_REQUEST['toShow_variation_description'] ) ) { ?>
 								<td></td>
 								<?php
 							}
 							?>
-										
+
 							<?php
 							foreach ( $post_meta as $meta ) {
 								if ( isset( $_REQUEST[ 'toShow' . $meta ] ) ) {
@@ -580,51 +583,51 @@ class StoreMigrationWooCommerce_Products {
 		?>
 		<h2>
 		<?php esc_html_e( 'IMPORT / UPDATE PRODUCTS', 'store-migration-products-orders-import-export-with-excel' ); ?>
-		</h2>	
-			
+		</h2>
+
 		<p>
 			<?php esc_html_e( 'Download the sample excel file, save it and add your Simple products. You can add your Custom Columns. Upload it using the form below.', 'store-migration-products-orders-import-export-with-excel' ); ?> <br/>
 			<a href='<?php echo plugins_url( '../example_excel/import-simple-products.xlsx', __FILE__ ); ?>'>
 				<?php esc_html_e( 'Simple Products Sample', 'store-migration-products-orders-import-export-with-excel' ); ?>
-			</a>			
+			</a>
 		</p>
-							
+
 		<p>
 			<span class='button button-secondary warning imageHandling' >
 				<i class='fa fa-exclamation'></i> <?php esc_html_e( 'IMAGE HANDLING', 'store-migration-products-orders-import-export-with-excel' ); ?>
 			</span>
-			<span class='button button-secondary warning productHandling' >  
+			<span class='button button-secondary warning productHandling' >
 				<?php esc_html_e( 'SIMPLE vs VARIABLE Products', 'store-migration-products-orders-import-export-with-excel' ); ?>
-			</span>		
-			<span class='button button-secondary warning updateHandling' >  
+			</span>
+			<span class='button button-secondary warning updateHandling' >
 				<?php esc_html_e( 'UPDATE Info', 'store-migration-products-orders-import-export-with-excel' ); ?>
-			</span>					
+			</span>
 		</p>
 
 		<div class='imageinfo'>
-			<p>  
+			<p>
 				<?php esc_html_e( 'You want to import Product Images? get ', 'store-migration-products-orders-import-export-with-excel' ); ?> <a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
-			</p>			
+			</p>
 		</div>
 		<div class='productInfo'>
 			<p>
 				<?php esc_html_e( 'Importing Products means 3 options:', 'store-migration-products-orders-import-export-with-excel' ); ?>
 			</p>
-			
+
 			<p>
 				1) <?php esc_html_e( 'Simple Products with NO Atrributes  - 1 product (defined by unique title) per Excel row. Only one needed in the excel file.', 'store-migration-products-orders-import-export-with-excel' ); ?>
 			</p>
-			<p>  
-				2) <?php esc_html_e( 'Simple Products with Atrributes (eg color) NO Variations - 1 Row per product Attribute (title of product is the same)  for Each Attribute.get ', 'store-migration-products-orders-import-export-with-excel' ); ?> <b><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a></b> 
-			</p>	
-			<p>  
+			<p>
+				2) <?php esc_html_e( 'Simple Products with Atrributes (eg color) NO Variations - 1 Row per product Attribute (title of product is the same)  for Each Attribute.get ', 'store-migration-products-orders-import-export-with-excel' ); ?> <b><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a></b>
+			</p>
+			<p>
 				3) <?php esc_html_e( 'You want to import Variable Products? get ', 'store-migration-products-orders-import-export-with-excel' ); ?> <a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
 			</p>
-			<p>  
+			<p>
 				4) <?php _e( 'Variable Products with Attributes (eg color,size)  comma separated from Only 1 excel row. This means the variations share the same meta data such as prices, sku, stock, dimensions, images etc . Get ', 'store-migration-products-orders-import-export-with-excel' ); ?> <a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
-			</p>			
+			</p>
 		</div>
-		
+
 		<div class='updateinfo'>
 			<p>
 				<b>1)<?php esc_html_e( 'UPDATING VIA EXPORT SCREEN EXCEL', 'store-migration-products-orders-import-export-with-excel' ); ?></b>
@@ -636,10 +639,10 @@ class StoreMigrationWooCommerce_Products {
 				<i>
 					<?php esc_html_e( "You need to click 'update only' and select the identifier for update(sku,title or ID).", 'store-migration-products-orders-import-export-with-excel' ); ?>
 				</i>
-			</p>		
+			</p>
 		</div>
-		  
-		<div>			
+
+		<div>
 			<form method="post" id='product_import' enctype="multipart/form-data" action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=main' ); ?>">
 
 				<table class="form-table">
@@ -650,15 +653,15 @@ class StoreMigrationWooCommerce_Products {
 								<div class="uploader">
 									<img src="" class='userSelected'/>
 									<input type="file"  required name="file" class="productsFile"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-								</div>						
+								</div>
 							</td>
 						</tr>
 				</table>
 				<?php submit_button( esc_html__( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'upload' ); ?>
-			</form>	
+			</form>
 			<div class='result'>
 				<?php $this->importProducts(); ?>
-			</div>					
+			</div>
 		</div>
 		<?php
 	}
@@ -696,7 +699,7 @@ class StoreMigrationWooCommerce_Products {
 					?>
 					<span class='thisNum'></span>
 					<div class='ajaxResponse'></div>
-						
+
 					<div class='woo-form-wrapper'>
 						<form method='POST' id ='product_process' action= "<?php print admin_url( 'admin.php?page=store-migration-woocommerce' ); ?>">
 
@@ -706,9 +709,9 @@ class StoreMigrationWooCommerce_Products {
 							<p class='proVersion'>
 								<i ><b > <?php esc_html_e( 'Auto Match Columns - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?> <input type='checkbox' disabled  /> </b></i>
 							</p>
-							
-							
-							<div class='columns3 border'>	
+
+
+							<div class='columns3 border'>
 
 								<p class=' update_onlyField'>
 									<input type='checkbox' name='update_only' id='update_only' value='yes'  /> <b><i> <?php esc_html_e( 'UPDATE ONLY', 'store-migration-products-orders-import-export-with-excel' ); ?></i> </b>
@@ -717,48 +720,48 @@ class StoreMigrationWooCommerce_Products {
 										<option value='id'><?php esc_html_e( 'ID', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
 										<option readonly disabled><?php esc_html_e( 'SKU - PRO VERSION', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
 										<option value='title'><?php esc_html_e( 'TITLE', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
-									</select>									
-									
+									</select>
+
 								</p>
 
-									
-								
-								
+
+
+
 								<p class='hideOnUpdateById'>
 									<input type='checkbox' name='add_always_new' id='add_always_new' value='yes'  /> <b> <?php esc_html_e( 'Always add new Products even if title is the same / will not work for variable products', 'store-migration-products-orders-import-export-with-excel' ); ?> </b>
-								</p>							
+								</p>
 
 								<p class=''>
 									<input type='checkbox' name='selectparent' id='selectparent' value='yes'  /> <b> <?php esc_html_e( 'Select Parent Categories as well ', 'store-migration-products-orders-import-export-with-excel' ); ?></b>
-								</p>								
+								</p>
 
 								<p class='hideOnUpdateById'>
 									<input type='checkbox' disabled readonly  /> <b> <?php esc_html_e( 'Create only Simple Product with Attributes, if any  ', 'store-migration-products-orders-import-export-with-excel' ); ?><strong><?php esc_html_e( 'ONLY,', 'store-migration-products-orders-import-export-with-excel' ); ?> <?php esc_html_e( 'Not Variations ', 'store-migration-products-orders-import-export-with-excel' ); ?> <a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
-										</strong>									
+										</strong>
 									</b>
-									
+
 								</p>
 								<p class='hideOnUpdateById'>
-									<input type='checkbox' disabled readonly  /> <b> <?php esc_html_e( 'Set Last Variation as Default (Variable Products)', 'store-migration-products-orders-import-export-with-excel' ); ?> 	<a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>															
+									<input type='checkbox' disabled readonly  /> <b> <?php esc_html_e( 'Set Last Variation as Default (Variable Products)', 'store-migration-products-orders-import-export-with-excel' ); ?> 	<a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
 									</b>
 								</p>
 								<p class='hideOnUpdateById' title='<?php esc_html_e( 'used in cases for adding multiple attribute combinations without having double rows for same attribute value that has been already imported', 'store-migration-products-orders-import-export-with-excel' ); ?>' >
 									<input type='checkbox' disabled readonly /> <b> <?php esc_html_e( 'Assign Attribute to product even if value is null', 'store-migration-products-orders-import-export-with-excel' ); ?> <a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
-																											
+
 									</b>
 								</p>
 
 								<p class='hideOnUpdateById' title='<?php esc_html_e( 'used for variable products cases where all variations share same  prices, dimensions, descriptions, shipping, tax, images and in general data', 'store-migration-products-orders-import-export-with-excel' ); ?>'>
 									<input type='checkbox' disabled readonly  /> <b> <?php esc_html_e( 'Add Variable product from 1 row with attrributes comma separated ', 'store-migration-products-orders-import-export-with-excel' ); ?> <a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
-																		
+
 									</b>
 								</p>
 
-							
+
 								<h2>
 									<?php esc_html_e( 'EXCEL COLUMNS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-								
+
 								<p>
 									<?php
 									foreach ( $cellIterator as $cell ) {
@@ -766,8 +769,8 @@ class StoreMigrationWooCommerce_Products {
 									}
 									?>
 																	</p>
-								
-		   
+
+
 								<input type='hidden' name='importfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
 								<input type='hidden' name='action' value='import_process' />
@@ -775,16 +778,16 @@ class StoreMigrationWooCommerce_Products {
 									wp_nonce_field( 'excel_process', 'secNonce' );
 									submit_button( esc_html__( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'check' );
 								?>
-																
+
 							</div>
-						
+
 							<div class='columns3'>
-					
+
 								<h2>
 									<?php esc_html_e( 'PRODUCT FIELDS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
 
-							
+
 								<?php
 								foreach ( $post_meta as $meta ) {
 									if ( $meta === 'ID' ) {
@@ -810,16 +813,16 @@ class StoreMigrationWooCommerce_Products {
 								<p class='proVersion'>
 									<b><?php esc_html_e( 'IMAGE - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?></b>
 								</p>
-							
+
 								<p class='proVersion'>
 									<b><?php esc_html_e( 'IMAGE GALLERY - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?></b>
 								</p>
 
 							</div>
-							
-							
+
+
 							<div class='columns3'>
-																
+
 									<h2 class='proVersion' >
 										<?php esc_html_e( 'CUSTOM FIELDS - PRO VERSION', 'store-migration-products-orders-import-export-with-excel' ); ?>
 									</h2>
@@ -827,19 +830,19 @@ class StoreMigrationWooCommerce_Products {
 									if ( ! empty( $this->custom_product_fields() ) ) {
 										foreach ( $this->custom_product_fields() as $meta ) {
 											echo '<p>
-													<b>' . strtoupper( str_replace( '_', ' ', esc_html( $meta ) ) ) . '</b> 
+													<b>' . strtoupper( str_replace( '_', ' ', esc_html( $meta ) ) ) . '</b>
 											</p>';
 										}
 									} else {
 										print '<i>' . esc_html__( 'You dont have any custom fields associated to any product. If there are, please Just create a test product from WordPress backend -add just title and press Publish-. After this action, you will be able to view here any custom field, from Plugins like ACF. In the end you can then delete this test product.', 'store-migration-products-orders-import-export-with-excel' ) . '</i>';
 									}
 									?>
-									
-								
+
+
 								<h2>
 									<?php esc_html_e( 'PRODUCT TAXONOMIES - ATTRIBUTES', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-							
+
 								<?php
 								$taxonomy_objects = get_object_taxonomies( 'product', 'objects' );
 								foreach ( $taxonomy_objects as $voc ) {
@@ -857,11 +860,11 @@ class StoreMigrationWooCommerce_Products {
 								}
 								?>
 
-								
-							</div>				
+
+							</div>
 						</form>
 					</div>
-					
+
 					<?php
 					move_uploaded_file( $_FILES['file']['tmp_name'], plugin_dir_path( __FILE__ ) . 'importProducts.xlsx' );
 
@@ -1104,7 +1107,7 @@ class StoreMigrationWooCommerce_Products {
 					// create
 					$id = wp_insert_post( $post, $wp_error );
 					print "<p class='success'>
-								<a href='" . esc_url( get_permalink( $id ) ) . "' target='_blank'>" . esc_html( $title ) . '</a> 
+								<a href='" . esc_url( get_permalink( $id ) ) . "' target='_blank'>" . esc_html( $title ) . '</a>
 								' . esc_html__( 'created', 'store-migration-products-orders-import-export-with-excel' ) . '
 							.</p>';
 					// add at least zero for price in case prices are not configured so we can later get the product on export based on WooCommerce product class

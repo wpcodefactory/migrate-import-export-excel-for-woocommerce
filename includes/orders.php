@@ -1,8 +1,11 @@
 <?php
+/**
+ * Migrate Import Export WooCommerce Store with Excel - StoreMigrationWooCommerce_Orders Class
+ *
+ * @author  WPFactory
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'PhpOffice\PhpSpreadsheet\IOFactory' ) ) {
 	include plugin_dir_path( __FILE__ ) . '../Classes/vendor/autoload.php';
@@ -287,19 +290,19 @@ class StoreMigrationWooCommerce_Orders {
 		?>
 		<h2>
 		<?php esc_html_e( 'IMPORT / UPDATE Orders', 'store-migration-products-orders-import-export-with-excel' ); ?>
-		</h2>	
-		
-		<h3><?php print esc_html( 'You can import Orders for Simple Products.', 'store-migration-products-orders-import-export-with-excel' ); ?> <?php print esc_html( 'If you need to import Orders with Variable products go for the ', 'store-migration-products-orders-import-export-with-excel' ); ?><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php print esc_html( 'PRO VERSION', 'store-migration-products-orders-import-export-with-excel' ); ?></a></h3>		
+		</h2>
+
+		<h3><?php print esc_html( 'You can import Orders for Simple Products.', 'store-migration-products-orders-import-export-with-excel' ); ?> <?php print esc_html( 'If you need to import Orders with Variable products go for the ', 'store-migration-products-orders-import-export-with-excel' ); ?><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php print esc_html( 'PRO VERSION', 'store-migration-products-orders-import-export-with-excel' ); ?></a></h3>
 		<p>
 			<?php
 			_e( 'Download the sample excel file, save it and add your Orders. Upload it using the form below.', 'store-migration-products-orders-import-export-with-excel' );
 			?>
 						<a href='<?php echo plugins_url( '../example_excel/import_orders.xlsx', __FILE__ ); ?>'>
 				<?php _e( 'Orders Excel Sample', 'store-migration-products-orders-import-export-with-excel' ); ?>
-			</a>		
+			</a>
 		</p>
-								  
-		<div>			
+
+		<div>
 			<form method="post" id='orders_import' enctype="multipart/form-data" action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=orders' ); ?>">
 
 				<table class="form-table">
@@ -310,15 +313,15 @@ class StoreMigrationWooCommerce_Orders {
 								<div class="uploader">
 									<img src="" class='userSelected'/>
 									<input type="file"  required name="file" class="ordersImportFile"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-								</div>						
+								</div>
 							</td>
 						</tr>
 				</table>
 				<?php submit_button( __( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'upload' ); ?>
-			</form>	
+			</form>
 			<div class='result'>
 				<?php $this->importOrders(); ?>
-			</div>					
+			</div>
 		</div>
 		<?php
 	}
@@ -352,7 +355,7 @@ class StoreMigrationWooCommerce_Orders {
 					?>
 					<span class='thisNum'></span>
 					<div class='ajaxResponse'></div>
-						
+
 					<div class='woo-form-wrapper'>
 						<form method='POST' id ='orders_process' action= "<?php print admin_url( 'admin.php?page=store-migration-woocommerce&tab=orders' ); ?>">
 
@@ -362,8 +365,8 @@ class StoreMigrationWooCommerce_Orders {
 							<p class='proVersion'>
 								<i ><b > <?php esc_html_e( 'Auto Match Columns - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?> <input type='checkbox' disabled  /> </b></i>
 							</p>
-							
-							<div class='columns3 border'>	
+
+							<div class='columns3 border'>
 
 								<p class=''>
 									<input type='checkbox' name='same_address' id='same_address' value='yes'  /> <b> <?php esc_html_e( 'Shipping same as Billing address', 'store-migration-products-orders-import-export-with-excel' ); ?> </b>
@@ -378,13 +381,13 @@ class StoreMigrationWooCommerce_Orders {
 										<option value='id'><?php esc_html_e( 'ID', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
 										<option value='sku'><?php esc_html_e( 'SKU', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
 										<option value='title'><?php esc_html_e( 'TITLE', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
-									</select>	
+									</select>
 								</p>
-								
+
 								<h2>
 									<?php _e( 'EXCEL COLUMNS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-								
+
 								<p>
 									<?php
 									foreach ( $cellIterator as $cell ) {
@@ -392,8 +395,8 @@ class StoreMigrationWooCommerce_Orders {
 									}
 									?>
 																	</p>
-								
-		   
+
+
 								<input type='hidden' name='ordersfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
 								<input type='hidden' name='action' value='importOrders_process' />
@@ -401,17 +404,17 @@ class StoreMigrationWooCommerce_Orders {
 									wp_nonce_field( 'excel_process', 'secNonce' );
 									submit_button( __( 'Upload', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'check' );
 								?>
-																
+
 							</div>
-							
+
 
 							<div class='columns2'>
-							
+
 								<h2>
 									<?php esc_html_e( 'ORDERS FIELDS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-								
-								
+
+
 								<?php
 
 								$post_meta = array( 'order_date', 'order_pay_date', 'order_status', 'product_ids', 'quantities', 'first_name', 'last_name', 'company', 'email', 'phone', 'address_1', 'address_2', 'city', 'state', 'postcode', 'country', 'shipping_method', 'shipping_amount', 'payment_method', 'coupon_code' );
@@ -423,7 +426,7 @@ class StoreMigrationWooCommerce_Orders {
 										</p>";
 									} elseif ( $meta === 'coupon_code' ) {
 										echo "<p class='proVersion'>
-											<b>" . esc_html( 'Coupons - PRO VERSION', 'store-migration-products-orders-import-export-with-excel' ) . ' </b> 
+											<b>" . esc_html( 'Coupons - PRO VERSION', 'store-migration-products-orders-import-export-with-excel' ) . ' </b>
 										</p>';
 									} else {
 										echo '<p>
@@ -435,14 +438,14 @@ class StoreMigrationWooCommerce_Orders {
 								?>
 
 
-								
-							</div>	
-							
-							
-			
+
+							</div>
+
+
+
 						</form>
 					</div>
-					
+
 					<?php
 					move_uploaded_file( $_FILES['file']['tmp_name'], plugin_dir_path( __FILE__ ) . 'import_orders.xlsx' );
 
@@ -732,11 +735,11 @@ class StoreMigrationWooCommerce_Orders {
 	public function exportOrdersForm() {
 
 		?>
-				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i> 
+				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i>
 					<?php esc_html_e( 'Filter & Fields to Show', 'store-migration-products-orders-import-export-with-excel' ); ?>
 				</p>
-				
-				<form name='exportOrdersForm' id='exportOrdersForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportOrders' ); ?>" >	
+
+				<form name='exportOrdersForm' id='exportOrdersForm' method='post' action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=exportOrders' ); ?>" >
 					<table class='wp-list-table widefat fixed table table-bordered'>
 
 						<tr>
@@ -759,26 +762,26 @@ class StoreMigrationWooCommerce_Orders {
 									<option value='wc-hold'><?php esc_html_e( 'Hold', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
 									<option value='wc-refunded'><?php esc_html_e( 'Refunded', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
 									<option value='wc-trash'><?php esc_html_e( 'Trash', 'store-migration-products-orders-import-export-with-excel' ); ?></option>
-								</select>								
+								</select>
 							</td>
 							<td></td><td></td>
 						</tr>
-						
+
 						<tr>
 							<td>
 							<?php esc_html_e( 'From Creation Date', 'store-migration-products-orders-import-export-with-excel' ); ?>
-							</td>	
+							</td>
 							<td>
 							<input type='date' style='width:100%;'  name='fromDate' id='fromDate' placeholder='<?php esc_html_e( 'FROM date', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
-							</td>							
+							</td>
 							<td>
 							<?php esc_html_e( 'To Creation Date', 'store-migration-products-orders-import-export-with-excel' ); ?>
-							</td>	
+							</td>
 							<td>
 							<input type='date' style='width:100%;'  name='toDate' id='toDate' placeholder='<?php esc_html_e( 'TO date', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
-							</td>						
+							</td>
 						</tr>
-						
+
 						<tr>
 							<td>
 							<?php esc_html_e( 'Limit Results', 'store-migration-products-orders-import-export-with-excel' ); ?>
@@ -786,16 +789,16 @@ class StoreMigrationWooCommerce_Orders {
 							<td>
 								<input type='number' min="1" max="100000" style='width:100%;'  name='posts_per_page' id='posts_per_page' placeholder='<?php esc_html_e( 'Number to display..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							</td>
-							
-							
-							
-							
+
+
+
+
 							<input type='hidden' name='offset' style='width:100%;' id='offset' placeholder='<?php esc_html_e( 'Start from..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							<input type='hidden' name='start' /><input type='hidden' name='total' />
-							
+
 							<td></td><td></td>
 						</tr>
-						
+
 					</table>
 
 					<table class='wp-list-table widefat fixed table table-bordered tax_checks'>
@@ -808,7 +811,7 @@ class StoreMigrationWooCommerce_Orders {
 							<td>
 								<input type="checkbox" name="check_all1" id="check_all1" ><label for="check_all1"><?php esc_html_e( 'Check All', 'store-migration-products-orders-import-export-with-excel' ); ?></label>
 							</td>
-						</tr>						
+						</tr>
 						<tr>
 							<?php
 							$cols = array();
@@ -830,8 +833,8 @@ class StoreMigrationWooCommerce_Orders {
 							?>
 						</tr>
 					</table>
-		
-							
+
+
 					<input type='hidden' name='columnsToShow' value='1'  />
 					<input type='hidden' id='action' name='action' value='exportOrders_process' />
 					<?php wp_nonce_field( 'columnsToShow' ); ?>
@@ -839,7 +842,7 @@ class StoreMigrationWooCommerce_Orders {
 					<?php submit_button( esc_html__( 'Search', 'store-migration-products-orders-import-export-with-excel' ), 'primary', 'Search' ); ?>
 
 				</form>
-			
+
 			<div class='resultExport'>
 				<?php $this->exportOrders(); ?>
 			</div>
@@ -899,7 +902,7 @@ class StoreMigrationWooCommerce_Orders {
 					<?php esc_html_e( 'Wait... Download is loading...', 'store-migration-products-orders-import-export-with-excel' ); ?>
 					<b class='totalPosts'  >
 						<?php print esc_html( count( $getorders ) ); ?>
-					</b>					
+					</b>
 				</p>
 
 				<?php
@@ -913,16 +916,16 @@ class StoreMigrationWooCommerce_Orders {
 				$column_name = array( 'get_id()', 'get_status()', 'get_date_created()', 'get_date_completed()', 'get_date_paid()', 'get_product_id()', 'get_name()', 'get_quantity()', 'get_customer_id()', 'get_billing_first_name()', 'get_billing_last_name()', 'get_billing_email()', 'get_billing_phone()', 'get_billing_country()', 'get_billing_state()', 'get_billing_city()', 'get_billing_address1()', 'get_billing_address2()', 'get_billing_postcode()', 'get_shipping_first_name()', 'get_shipping_last_name()', 'get_shipping_country()', 'get_shipping_state()', 'get_shipping_city()', 'get_shipping_address1()', 'get_shipping_address2()', 'get_shipping_postcode()', 'get_subtotal()', 'get_total_refunded()', 'get_total()', 'get_total_tax()', 'get_total_discount()', 'get_shipping_total()', 'get_payment_method_title()' );
 
 				?>
-				
 
-				
+
+
 				<div id="myProgress">
 					<div id="myBar"></div>
 				</div>
 				<div class='exportTableWrapper'>
 					<table id='toExport'>
 						<thead>
-							<tr> 
+							<tr>
 								<?php
 								foreach ( $column_name as $d ) {
 
@@ -940,10 +943,10 @@ class StoreMigrationWooCommerce_Orders {
 							</tr>
 						</thead>
 						<tbody class='tableExportAjax'>
-						</tbody>	
+						</tbody>
 					</table>
-				</div>	
-			
+				</div>
+
 				<?php
 			} else {
 				?>
@@ -1013,7 +1016,7 @@ class StoreMigrationWooCommerce_Orders {
 							foreach ( $cols as $meta ) {
 								if ( isset( $_REQUEST[ 'toShow' . $meta ] ) ) {
 									?>
-								
+
 									<?php if ( $meta === 'get_id()' ) { ?>
 									<td><?php print esc_html( $order->get_id() ); ?></td>
 								<?php } ?>
@@ -1023,78 +1026,78 @@ class StoreMigrationWooCommerce_Orders {
 									<?php if ( $meta === 'get_status()' ) { ?>
 									<td><?php print esc_html( $order->get_status() ); ?></td>
 								<?php } ?>
-								
+
 									<?php if ( $meta === 'get_date_created()' ) { ?>
 									<td><?php print esc_html( date( 'd M Y h:i:s', strtotime( $order->get_date_created() ) ) ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_date_completed()' ) { ?>
 									<td><?php print esc_html( date( 'd M Y h:i:s', strtotime( $order->get_date_completed() ) ) ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_date_paid()' ) { ?>
 									<td><?php print esc_html( date( 'd M Y h:i:s', strtotime( $order->get_date_paid() ) ) ); ?></td>
-								<?php } ?>									
+								<?php } ?>
 
 									<?php if ( $meta === 'get_customer_id()' ) { ?>
 									<td><?php print esc_html( $order->get_customer_id() ); ?></td>
-								<?php } ?>	
-								
+								<?php } ?>
+
 									<?php if ( $meta === 'get_billing_first_name()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_first_name() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_last_name()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_last_name() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_country()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_country() ); ?></td>
 								<?php } ?>
 									<?php if ( $meta === 'get_billing_email()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_email() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_city()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_city() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_state()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_state() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_postcode()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_postcode() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_phone()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_phone() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_address1()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_address_1() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_billing_address2()' ) { ?>
 									<td><?php print esc_html( $order->get_billing_address_2() ); ?></td>
-								<?php } ?>	
-								
+								<?php } ?>
+
 									<?php if ( $meta === 'get_shipping_first_name()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_first_name() ); ?></td>
 								<?php } ?>
 									<?php if ( $meta === 'get_address()' ) { ?>
 									<td><?php print esc_html( $order->get_address() ); ?></td>
-								<?php } ?>								
+								<?php } ?>
 									<?php if ( $meta === 'get_shipping_last_name()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_last_name() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_shipping_country()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_country() ); ?></td>
 								<?php } ?>
 
 									<?php if ( $meta === 'get_shipping_city()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_city() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_shipping_state()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_state() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_shipping_postcode()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_postcode() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 
 									<?php if ( $meta === 'get_shipping_address1()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_address_1() ); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_shipping_address2()' ) { ?>
 									<td><?php print esc_html( $order->get_shipping_address_2() ); ?></td>
 								<?php } ?>
@@ -1102,30 +1105,30 @@ class StoreMigrationWooCommerce_Orders {
 
 									<?php if ( $meta === 'get_total_tax()' ) { ?>
 									<td><?php print $order->get_total_tax(); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_total_discount()' ) { ?>
 									<td><?php print $order->get_total_discount(); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_shipping_total()' ) { ?>
 									<td><?php print $order->get_shipping_total(); ?></td>
-								<?php } ?>	
+								<?php } ?>
 
 									<?php if ( $meta === 'get_total_refunded()' ) { ?>
 									<td><?php print $order->get_total_refunded(); ?></td>
-								<?php } ?>								
+								<?php } ?>
 									<?php if ( $meta === 'get_subtotal()' ) { ?>
 									<td><?php print $order->get_subtotal(); ?></td>
-								<?php } ?>	
+								<?php } ?>
 									<?php if ( $meta === 'get_total()' ) { ?>
 									<td><?php print $order->get_total(); ?></td>
 								<?php } ?>
-	
+
 									<?php if ( $meta === 'get_payment_method_title()' ) { ?>
 									<td><?php print $order->get_payment_method_title(); ?></td>
-								<?php } ?>	
-								
-								
-								
+								<?php } ?>
+
+
+
 									<?php
 									if ( $meta === 'get_product_id()' ) {
 										$productIds = array();
@@ -1139,8 +1142,8 @@ class StoreMigrationWooCommerce_Orders {
 
 										?>
 									<td><?php print implode( ',', $productIds ); ?></td>
-									<?php } ?>	
-								
+									<?php } ?>
+
 
 									<?php
 									if ( $meta === 'get_name()' ) {
@@ -1152,7 +1155,7 @@ class StoreMigrationWooCommerce_Orders {
 
 										?>
 									<td><?php print implode( ',', $productnames ); ?></td>
-									<?php } ?>	
+									<?php } ?>
 
 									<?php
 									if ( $meta === 'get_quantity()' ) {
@@ -1165,8 +1168,8 @@ class StoreMigrationWooCommerce_Orders {
 
 										?>
 									<td><?php print implode( ',', $productQuantities ); ?></td>
-									<?php } ?>									
-							
+									<?php } ?>
+
 									<?php
 
 								}
