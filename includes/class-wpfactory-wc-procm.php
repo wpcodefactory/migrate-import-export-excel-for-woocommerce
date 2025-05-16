@@ -61,6 +61,45 @@ final class WPFactory_WC_PROCM {
 			return;
 		}
 
+		// Admin
+		if ( is_admin() ) {
+			$this->admin();
+		}
+
+	}
+
+	/**
+	 * admin.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
+	 */
+	function admin() {
+
+		// Load libs
+		require_once plugin_dir_path( WPFACTORY_WC_PROCM_FILE ) . 'vendor/autoload.php';
+
+		// "Recommendations" page
+		add_action( 'init', array( $this, 'add_cross_selling_library' ) );
+
+	}
+
+	/**
+	 * add_cross_selling_library.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
+	 */
+	function add_cross_selling_library() {
+
+		if ( ! class_exists( '\WPFactory\WPFactory_Cross_Selling\WPFactory_Cross_Selling' ) ) {
+			return;
+		}
+
+		$cross_selling = new \WPFactory\WPFactory_Cross_Selling\WPFactory_Cross_Selling();
+		$cross_selling->setup( array( 'plugin_file_path' => WPFACTORY_WC_PROCM_FILE ) );
+		$cross_selling->init();
+
 	}
 
 	/**
