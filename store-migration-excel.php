@@ -1,24 +1,23 @@
 <?php
-/*
+/**
  * Plugin Name: Migrate Import Export WooCommerce Store with Excel
- * Description: Migrate -import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel
- * Version: 2.0
- * Author: extendWP
- * Author URI: https://extend-wp.com
+ * Description: Migrate -import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel.
+ * Version: 3.0.0-dev
+ * Author: WPFactory
+ * Author URI: https://wpfactory.com
  *
  * WC requires at least: 2.2
- * WC tested up to: 9.5
+ * WC tested up to: 9.8
  *
  * Requires PHP: 8.1
- * License: GPL2
+ * License: GPLv2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Created On: 09-09-2020
  * Updated On: 25-11-2024
  * Text Domain: store-migration-products-orders-import-export-with-excel
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 require_once plugin_dir_path( __FILE__ ) . '/class-main.php';
 require_once plugin_dir_path( __FILE__ ) . '/includes/products.php';
@@ -136,8 +135,8 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 						<input required type='hidden' name='product' value='3525' />
 						<input type='submit' class='button button-primary' name='submit' value='<?php esc_html_e( 'Sign up', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 						<i><?php esc_html_e( 'By adding your email you will be able to use your email as coupon to a future purchase at ', 'store-migration-products-orders-import-export-with-excel' ); ?><a href='https://extend-wp.com' target='_blank' >extend-wp.com</a></i>
-						</p>						
-						
+						</p>
+
 					</form>
 				</div>
 				<?php
@@ -250,7 +249,7 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 							<img style='width:90%' src='<?php echo esc_url( plugins_url( 'images/' . esc_html( $this->slug ) . '-pro.png', __FILE__ ) ); ?>' style='width:100%' />
 						</center>
 					</div>
-					
+
 					<div class='<?php print esc_html( $this->plugin ); ?>columns2'>
 						<p><i class='fa fa-check'></i> <?php esc_html_e( 'Import Variable, Affiliate, Subscription Products with excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 						<p><i class='fa fa-check'></i> <?php esc_html_e( 'WPML support for Product Translations Import ', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
@@ -270,7 +269,7 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 					</div>
 				</div>
 				</div>
-			</div>		
+			</div>
 			<?php
 	}
 }
