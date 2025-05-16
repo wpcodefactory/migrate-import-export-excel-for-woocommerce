@@ -25,7 +25,6 @@
 	height:auto;
 }
 
-
 /* === Ajaxify === */
 .eshopMigrationWooCommerce.loading > * {
     opacity:0.2;
@@ -69,7 +68,6 @@
 		padding:5px;
 }
 
-
 .eshopMigrationWooCommerce .exportTableWrapper{
 	overflow-x:scroll;
 }
@@ -101,9 +99,7 @@
 	text-align:center;
 }
 
-
 /* ======= Excel Upload Elements ======= */
-
 
 .eshopMigrationWooCommerce .uploader {
 	position:relative;
@@ -266,7 +262,6 @@
 		padding:5px;
 }
 
-
 .eshopMigrationWooCommerce .exportTableWrapper{
 	overflow-x:scroll;
 }
@@ -274,7 +269,6 @@
 #eshopMigrationWooCommerceForm tr:nth-child(5){
 	display:none;
 }
-
 
 .eshopMigrationWooCommerce #productupdateBy{
 	display:none;
@@ -398,7 +392,6 @@ h2 a.disabled{
 span.proVersion{
 	color:#c9c9c9 !important
 }
-
 
 /*  PRO VERSION MODAL */
 #eshopMigrationWooCommerceModal {
