@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Migrate Import Export WooCommerce Store with Excel 3.0.0-dev\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/migrate-import-export-excel-for-woocommerce\n"
+"Project-Id-Version: Migrate Import Export WooCommerce Store with Excel 3.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/store-migration-products-orders-import-export-with-excel\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-16T14:08:44+00:00\n"
+"POT-Creation-Date: 2025-05-16T16:57:01+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: store-migration-products-orders-import-export-with-excel\n"
@@ -34,168 +34,179 @@ msgstr ""
 msgid "https://wpfactory.com"
 msgstr ""
 
-#: class-main.php:80
-msgid "Migration Process Sequence"
-msgstr ""
-
-#: class-main.php:83
-msgid "Prerequisite for creating an order is products import."
-msgstr ""
-
-#: class-main.php:84
-msgid "Example:"
-msgstr ""
-
-#: class-main.php:86
-msgid "Import Products"
-msgstr ""
-
-#: class-main.php:87
-msgid "Import Product Reviews - pro version"
-msgstr ""
-
-#: class-main.php:88
-msgid "Import Coupons - optional"
-msgstr ""
-
-#: class-main.php:89
-msgid "Import Customers  - optional"
+#: class-main.php:47
+msgid "Store Migration Products Orders Import Export with Excel for WooCommerce"
 msgstr ""
 
 #: class-main.php:90
-msgid "Import Orders - assign to already created customer or guest"
+msgid "Migration Process Sequence"
 msgstr ""
 
-#: class-main.php:95
-msgid "Should customers be added before orders?"
+#: class-main.php:93
+msgid "Prerequisite for creating an order is products import."
+msgstr ""
+
+#: class-main.php:94
+msgid "Example:"
+msgstr ""
+
+#: class-main.php:96
+msgid "Import Products"
 msgstr ""
 
 #: class-main.php:97
-msgid "This is optional. You either:"
+msgid "Import Product Reviews - pro version"
+msgstr ""
+
+#: class-main.php:98
+msgid "Import Coupons - optional"
 msgstr ""
 
 #: class-main.php:99
-msgid "Import Customers  first, then the order"
+msgid "Import Customers  - optional"
 msgstr ""
 
 #: class-main.php:100
-msgid "PRO VERSION - Import directly the Orders and either create new customer while creating the Order or just check as guest"
+msgid "Import Orders - assign to already created customer or guest"
 msgstr ""
 
-#: class-main.php:104
-msgid "Am I required to first import products?"
+#: class-main.php:105
+msgid "Should customers be added before orders?"
 msgstr ""
 
-#: class-main.php:106
-msgid "You need to import products before trying to add any orders - during order import, product will not be created if not exist"
+#: class-main.php:107
+msgid "This is optional. You either:"
+msgstr ""
+
+#: class-main.php:109
+msgid "Import Customers  first, then the order"
 msgstr ""
 
 #: class-main.php:110
-msgid "How is Tax calculated in Orders?"
+msgid "PRO VERSION - Import directly the Orders and either create new customer while creating the Order or just check as guest"
 msgstr ""
 
-#: class-main.php:112
-msgid "You can create the tax class, the edit existing products defining the Tax Class and Status, or while importing products from the excel file, define tax status and class for each imported product"
+#: class-main.php:114
+msgid "Am I required to first import products?"
 msgstr ""
 
-#: class-main.php:113
-msgid "Then, while importing Order tax will be calculated automatically"
-msgstr ""
-
-#: class-main.php:117
-msgid "How is Shipping added in Orders?"
+#: class-main.php:116
+msgid "You need to import products before trying to add any orders - during order import, product will not be created if not exist"
 msgstr ""
 
 #: class-main.php:119
-msgid "You will add a shipping method "
+msgid "How is Tax calculated in Orders?"
 msgstr ""
 
-#: class-main.php:120
-msgid "Moreover you will define in the excel file the total shipping cost"
+#: class-main.php:121
+msgid "You can create the tax class, the edit existing products defining the Tax Class and Status, or while importing products from the excel file, define tax status and class for each imported product"
+msgstr ""
+
+#: class-main.php:122
+msgid "Then, while importing Order tax will be calculated automatically"
 msgstr ""
 
 #: class-main.php:125
+msgid "How is Shipping added in Orders?"
+msgstr ""
+
+#: class-main.php:127
+msgid "You will add a shipping method "
+msgstr ""
+
+#: class-main.php:128
+msgid "Moreover you will define in the excel file the total shipping cost"
+msgstr ""
+
+#: class-main.php:132
 msgid "How to add Product Reviews?"
 msgstr ""
 
-#: class-main.php:127
-#: class-main.php:133
-#: class-main.php:139
-#: class-main.php:144
+#: class-main.php:134
+#: class-main.php:140
+#: class-main.php:146
+#: class-main.php:151
 msgid "This feature is available in the "
 msgstr ""
 
-#: class-main.php:127
-#: class-main.php:133
-#: class-main.php:139
-#: class-main.php:144
-#: includes/products.php:53
-#: includes/products.php:606
-#: includes/products.php:618
-#: includes/products.php:621
-#: includes/products.php:624
-#: includes/products.php:736
-#: includes/products.php:742
-#: includes/products.php:746
-#: includes/products.php:752
-#: store-migration-excel.php:253
+#: class-main.php:134
+#: class-main.php:140
+#: class-main.php:146
+#: class-main.php:151
+#: includes/products.php:54
+#: includes/products.php:602
+#: includes/products.php:614
+#: includes/products.php:617
+#: includes/products.php:620
+#: includes/products.php:725
+#: includes/products.php:731
+#: includes/products.php:735
+#: includes/products.php:741
 msgid "PRO Version"
 msgstr ""
 
-#: class-main.php:131
+#: class-main.php:138
 msgid "How to import Variable Products?"
 msgstr ""
 
-#: class-main.php:137
+#: class-main.php:144
 msgid "How to import Orders with Variable Products?"
 msgstr ""
 
-#: class-main.php:142
+#: class-main.php:149
 msgid "How to import WooCommerce Subscriptions ?"
 msgstr ""
 
-#: includes/class-wpfactory-wc-procm.php:141
-#: includes/class-wpfactory-wc-procm.php:142
+#: includes/class-wpfactory-wc-procm.php:147
+msgid "Settings"
+msgstr ""
+
+#: includes/class-wpfactory-wc-procm.php:156
+msgid "Go Pro"
+msgstr ""
+
+#: includes/class-wpfactory-wc-procm.php:197
+#: includes/class-wpfactory-wc-procm.php:198
 msgid "Store Migration"
 msgstr ""
 
-#: includes/coupons.php:24
+#: includes/coupons.php:26
 msgid "IMPORT / UPDATE Coupons"
 msgstr ""
 
-#: includes/coupons.php:29
+#: includes/coupons.php:31
 msgid "Download the sample excel file, save it and add your Product Reviews. Upload it using the form below."
 msgstr ""
 
-#: includes/coupons.php:32
+#: includes/coupons.php:34
 msgid "Coupons Excel Sample"
 msgstr ""
 
-#: includes/coupons.php:51
-#: includes/coupons.php:120
-#: includes/customers.php:302
-#: includes/orders.php:317
-#: includes/orders.php:402
-#: includes/products.php:657
-#: includes/products.php:776
+#: includes/coupons.php:53
+#: includes/coupons.php:121
+#: includes/customers.php:301
+#: includes/orders.php:319
+#: includes/orders.php:403
+#: includes/products.php:653
+#: includes/products.php:763
 msgid "Upload"
 msgstr ""
 
-#: includes/coupons.php:94
+#: includes/coupons.php:96
 msgid "DATA MAPPING: Drag and drop excel columns on the right to reviews properties on the left."
 msgstr ""
 
-#: includes/coupons.php:97
-#: includes/customers.php:356
-#: includes/orders.php:363
-#: includes/products.php:707
+#: includes/coupons.php:99
+#: includes/customers.php:355
+#: includes/orders.php:365
+#: includes/products.php:700
 msgid "Auto Match Columns - PRO"
 msgstr ""
 
-#: includes/coupons.php:103
-#: includes/customers.php:368
-#: includes/orders.php:385
-#: includes/products.php:759
+#: includes/coupons.php:105
+#: includes/customers.php:367
+#: includes/orders.php:387
+#: includes/products.php:747
 msgid "EXCEL COLUMNS"
 msgstr ""
 
@@ -203,125 +214,125 @@ msgstr ""
 msgid "COUPONS FIELDS"
 msgstr ""
 
-#: includes/coupons.php:177
-#: includes/customers.php:437
-#: includes/orders.php:450
-#: includes/products.php:869
+#: includes/coupons.php:172
+#: includes/customers.php:431
+#: includes/orders.php:445
+#: includes/products.php:852
 msgid "Invalid File:Please Upload Excel File"
+msgstr ""
+
+#: includes/coupons.php:270
+#: includes/customers.php:529
+#: includes/orders.php:708
+#: includes/products.php:1330
+msgid "- JOB DONE!"
+msgstr ""
+
+#: includes/coupons.php:270
+msgid "View Coupons"
 msgstr ""
 
 #: includes/coupons.php:276
 #: includes/customers.php:535
 #: includes/orders.php:714
-#: includes/products.php:1347
-msgid "- JOB DONE!"
-msgstr ""
-
-#: includes/coupons.php:276
-msgid "View Coupons"
-msgstr ""
-
-#: includes/coupons.php:282
-#: includes/customers.php:541
-#: includes/orders.php:720
-#: includes/products.php:1353
+#: includes/products.php:1336
 msgid "Please dont close this page... Loading..."
 msgstr ""
 
-#: includes/coupons.php:297
-#: includes/customers.php:555
-#: includes/orders.php:736
-#: includes/products.php:96
+#: includes/coupons.php:289
+#: includes/customers.php:548
+#: includes/orders.php:728
+#: includes/products.php:97
 msgid "Filter & Fields to Show"
 msgstr ""
 
-#: includes/coupons.php:305
-#: includes/orders.php:744
-#: includes/products.php:113
+#: includes/coupons.php:297
+#: includes/orders.php:736
+#: includes/products.php:114
 msgid "Keywords"
 msgstr ""
 
-#: includes/coupons.php:308
-#: includes/orders.php:747
-#: includes/products.php:116
+#: includes/coupons.php:300
+#: includes/orders.php:739
+#: includes/products.php:117
 msgid "Search term"
 msgstr ""
 
-#: includes/coupons.php:314
-#: includes/customers.php:579
-#: includes/orders.php:784
-#: includes/products.php:173
+#: includes/coupons.php:306
+#: includes/customers.php:571
+#: includes/orders.php:776
+#: includes/products.php:174
 msgid "Limit Results"
 msgstr ""
 
-#: includes/coupons.php:317
-#: includes/customers.php:582
-#: includes/orders.php:787
-#: includes/products.php:176
+#: includes/coupons.php:309
+#: includes/customers.php:574
+#: includes/orders.php:779
+#: includes/products.php:177
 msgid "Number to display.."
 msgstr ""
 
-#: includes/coupons.php:321
-#: includes/customers.php:571
-#: includes/orders.php:775
+#: includes/coupons.php:313
+#: includes/customers.php:563
+#: includes/orders.php:767
 msgid "To Creation Date"
 msgstr ""
 
-#: includes/coupons.php:324
-#: includes/customers.php:568
-#: includes/customers.php:574
+#: includes/coupons.php:316
+#: includes/customers.php:560
+#: includes/customers.php:566
 msgid "registration date"
 msgstr ""
 
-#: includes/coupons.php:327
-#: includes/customers.php:587
-#: includes/orders.php:793
-#: includes/products.php:178
+#: includes/coupons.php:319
+#: includes/customers.php:577
+#: includes/orders.php:782
+#: includes/products.php:179
 msgid "Start from.."
 msgstr ""
 
-#: includes/coupons.php:338
-#: includes/customers.php:598
-#: includes/orders.php:804
-#: includes/products.php:229
+#: includes/coupons.php:330
+#: includes/customers.php:588
+#: includes/orders.php:793
+#: includes/products.php:228
 msgid "FIELDS TO SHOW"
 msgstr ""
 
-#: includes/coupons.php:343
-#: includes/customers.php:603
-#: includes/orders.php:809
+#: includes/coupons.php:335
+#: includes/customers.php:593
+#: includes/orders.php:798
 #: includes/products.php:198
-#: includes/products.php:234
+#: includes/products.php:233
 msgid "Check All"
 msgstr ""
 
-#: includes/coupons.php:368
-#: includes/customers.php:643
-#: includes/orders.php:839
-#: includes/products.php:270
+#: includes/coupons.php:359
+#: includes/customers.php:632
+#: includes/orders.php:827
+#: includes/products.php:269
 msgid "Search"
 msgstr ""
 
-#: includes/coupons.php:431
-#: includes/customers.php:695
-#: includes/orders.php:899
-#: includes/products.php:348
+#: includes/coupons.php:422
+#: includes/customers.php:684
+#: includes/orders.php:887
+#: includes/products.php:347
 msgid "Wait... Download is loading..."
 msgstr ""
 
-#: includes/coupons.php:457
-#: includes/customers.php:721
-#: includes/orders.php:378
-#: includes/products.php:377
-#: includes/products.php:717
+#: includes/coupons.php:448
+#: includes/customers.php:710
+#: includes/orders.php:380
+#: includes/products.php:375
+#: includes/products.php:709
 msgid "ID"
 msgstr ""
 
-#: includes/coupons.php:480
+#: includes/coupons.php:471
 msgid "No Users found."
 msgstr ""
 
-#: includes/coupons.php:580
+#: includes/coupons.php:570
 msgid "No Coupons Found"
 msgstr ""
 
@@ -337,108 +348,108 @@ msgstr ""
 msgid "Customers Excel Sample"
 msgstr ""
 
-#: includes/customers.php:353
+#: includes/customers.php:352
 msgid "DATA MAPPING: Drag and drop excel columns on the right to customer properties on the left."
 msgstr ""
 
-#: includes/customers.php:362
+#: includes/customers.php:361
 msgid "Send Email to newly created Users - PRO Version"
 msgstr ""
 
-#: includes/customers.php:365
+#: includes/customers.php:364
 msgid "Update Existing Users - PRO Version"
 msgstr ""
 
-#: includes/customers.php:396
+#: includes/customers.php:394
 msgid "CUSTOMER FIELDS"
 msgstr ""
 
-#: includes/customers.php:400
+#: includes/customers.php:398
 msgid "EMAIL "
 msgstr ""
 
-#: includes/customers.php:403
+#: includes/customers.php:401
 msgid "USERNAME "
 msgstr ""
 
-#: includes/customers.php:407
+#: includes/customers.php:405
 msgid "PASSWORD "
 msgstr ""
 
-#: includes/customers.php:410
+#: includes/customers.php:408
 msgid "URL - WEBSITE "
 msgstr ""
 
-#: includes/customers.php:501
+#: includes/customers.php:495
 msgid " created"
 msgstr ""
 
-#: includes/customers.php:504
+#: includes/customers.php:498
 msgid "User with "
 msgstr ""
 
-#: includes/customers.php:504
+#: includes/customers.php:498
 msgid " already exists. "
 msgstr ""
 
-#: includes/customers.php:535
+#: includes/customers.php:529
 msgid "View Customers"
 msgstr ""
 
-#: includes/customers.php:565
-#: includes/orders.php:769
+#: includes/customers.php:557
+#: includes/orders.php:761
 msgid "From Creation Date"
 msgstr ""
 
-#: includes/customers.php:758
+#: includes/customers.php:747
 msgid "No Customers found."
 msgstr ""
 
-#: includes/customers.php:842
+#: includes/customers.php:830
 msgid "No Customers Found"
 msgstr ""
 
-#: includes/orders.php:289
+#: includes/orders.php:291
 msgid "IMPORT / UPDATE Orders"
 msgstr ""
 
-#: includes/orders.php:295
+#: includes/orders.php:297
 msgid "Download the sample excel file, save it and add your Orders. Upload it using the form below."
 msgstr ""
 
-#: includes/orders.php:298
+#: includes/orders.php:300
 msgid "Orders Excel Sample"
 msgstr ""
 
-#: includes/orders.php:360
+#: includes/orders.php:362
 msgid "DATA MAPPING: Drag and drop excel columns on the right to orders properties on the left."
 msgstr ""
 
-#: includes/orders.php:369
+#: includes/orders.php:371
 msgid "Shipping same as Billing address"
 msgstr ""
 
-#: includes/orders.php:372
+#: includes/orders.php:374
 msgid "Create user if not exist - PRO"
 msgstr ""
 
-#: includes/orders.php:375
+#: includes/orders.php:377
 msgid "Product to Orders by"
 msgstr ""
 
-#: includes/orders.php:377
+#: includes/orders.php:379
 msgid "select by..."
 msgstr ""
 
-#: includes/orders.php:379
-#: includes/products.php:121
-#: includes/products.php:363
+#: includes/orders.php:381
+#: includes/products.php:122
+#: includes/products.php:362
 msgid "SKU"
 msgstr ""
 
-#: includes/orders.php:380
-#: includes/products.php:363
-#: includes/products.php:719
+#: includes/orders.php:382
+#: includes/products.php:362
+#: includes/products.php:711
 msgid "TITLE"
 msgstr ""
 
@@ -446,101 +457,101 @@ msgstr ""
 msgid "ORDERS FIELDS"
 msgstr ""
 
-#: includes/orders.php:703
+#: includes/orders.php:697
 msgid "No Simple product found for creating an order - add your products first"
 msgstr ""
 
-#: includes/orders.php:709
-#: includes/products.php:1108
+#: includes/orders.php:703
+#: includes/products.php:1091
 msgid "created"
 msgstr ""
 
-#: includes/orders.php:714
+#: includes/orders.php:708
 msgid "View Orders"
 msgstr ""
 
-#: includes/orders.php:753
+#: includes/orders.php:745
 msgid "Status"
 msgstr ""
 
-#: includes/orders.php:757
+#: includes/orders.php:749
 msgid "All"
 msgstr ""
 
-#: includes/orders.php:758
+#: includes/orders.php:750
 msgid "Completed"
 msgstr ""
 
-#: includes/orders.php:759
+#: includes/orders.php:751
 msgid "Hold"
 msgstr ""
 
-#: includes/orders.php:760
+#: includes/orders.php:752
 msgid "Refunded"
 msgstr ""
 
-#: includes/orders.php:761
+#: includes/orders.php:753
 msgid "Trash"
 msgstr ""
 
-#: includes/orders.php:772
+#: includes/orders.php:764
 msgid "FROM date"
 msgstr ""
 
-#: includes/orders.php:778
+#: includes/orders.php:770
 msgid "TO date"
 msgstr ""
 
-#: includes/orders.php:951
+#: includes/orders.php:937
 msgid "No Orders found."
 msgstr ""
 
-#: includes/orders.php:1182
+#: includes/orders.php:1163
 msgid "No Orders Found"
 msgstr ""
 
-#: includes/products.php:53
+#: includes/products.php:54
 msgid "EXPORT SIMPLE PRODUCTS. For variable get "
 msgstr ""
 
-#: includes/products.php:56
+#: includes/products.php:57
 msgid "Important Note: always save the generated export file in xlsx format to a new excel for import use."
 msgstr ""
 
-#: includes/products.php:70
+#: includes/products.php:71
 msgid "Select.."
 msgstr ""
 
-#: includes/products.php:102
+#: includes/products.php:103
 msgid "filter by Taxonomy - PRO"
 msgstr ""
 
-#: includes/products.php:123
+#: includes/products.php:124
 msgid "Search by SKU"
 msgstr ""
 
-#: includes/products.php:129
-#: includes/products.php:132
+#: includes/products.php:130
+#: includes/products.php:133
 msgid "Regular Price"
 msgstr ""
 
-#: includes/products.php:129
-#: includes/products.php:135
-#: includes/products.php:150
-#: includes/products.php:157
+#: includes/products.php:130
+#: includes/products.php:136
+#: includes/products.php:151
+#: includes/products.php:158
 msgid " - PRO"
 msgstr ""
 
-#: includes/products.php:135
+#: includes/products.php:136
 msgid "Regular Price Selector"
 msgstr ""
 
-#: includes/products.php:150
-#: includes/products.php:153
+#: includes/products.php:151
+#: includes/products.php:154
 msgid "Sale Price"
 msgstr ""
 
-#: includes/products.php:157
+#: includes/products.php:158
 msgid "Sale Price Selector"
 msgstr ""
 
@@ -548,313 +559,313 @@ msgstr ""
 msgid "TAXONOMIES TO SHOW"
 msgstr ""
 
-#: includes/products.php:279
+#: includes/products.php:278
 msgid "No Products to display..."
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "DESCRIPTION"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "EXCERPT"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "POST NAME"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "VARIATION DESCRIPTION"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "REGULAR PRICE"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "SALE PRICE"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "WEIGHT"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "STOCK"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "STOCK STATUS"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "WIDTH"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "LENGTH"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "HEIGHT"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "DOWNLOADABLE"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "DOWNLOAD LIMIT"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "DOWNLOAD EXPIRY"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "VIRTUAL"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "PURCHASE NOTE"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "UPSELL IDS"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "CROSSSELL IDS"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "THUMBNAIL ID"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "PRODUCT IMAGE GALLERY"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "SOLD INDIVIDUALLY"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "BACKORDERS"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "FEATURED"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "TAX STATUS"
 msgstr ""
 
-#: includes/products.php:363
+#: includes/products.php:362
 msgid "TAX CLASS"
 msgstr ""
 
-#: includes/products.php:572
+#: includes/products.php:569
 msgid "No Product Found"
 msgstr ""
 
-#: includes/products.php:582
+#: includes/products.php:578
 msgid "IMPORT / UPDATE PRODUCTS"
 msgstr ""
 
-#: includes/products.php:586
+#: includes/products.php:582
 msgid "Download the sample excel file, save it and add your Simple products. You can add your Custom Columns. Upload it using the form below."
 msgstr ""
 
-#: includes/products.php:588
+#: includes/products.php:584
 msgid "Simple Products Sample"
 msgstr ""
 
-#: includes/products.php:594
+#: includes/products.php:590
 msgid "IMAGE HANDLING"
 msgstr ""
 
-#: includes/products.php:597
+#: includes/products.php:593
 msgid "SIMPLE vs VARIABLE Products"
 msgstr ""
 
-#: includes/products.php:600
+#: includes/products.php:596
 msgid "UPDATE Info"
 msgstr ""
 
-#: includes/products.php:606
+#: includes/products.php:602
 msgid "You want to import Product Images? get "
 msgstr ""
 
-#: includes/products.php:611
+#: includes/products.php:607
 msgid "Importing Products means 3 options:"
 msgstr ""
 
-#: includes/products.php:615
+#: includes/products.php:611
 msgid "Simple Products with NO Atrributes  - 1 product (defined by unique title) per Excel row. Only one needed in the excel file."
 msgstr ""
 
-#: includes/products.php:618
+#: includes/products.php:614
 msgid "Simple Products with Atrributes (eg color) NO Variations - 1 Row per product Attribute (title of product is the same)  for Each Attribute.get "
 msgstr ""
 
-#: includes/products.php:621
+#: includes/products.php:617
 msgid "You want to import Variable Products? get "
 msgstr ""
 
-#: includes/products.php:624
+#: includes/products.php:620
 msgid "Variable Products with Attributes (eg color,size)  comma separated from Only 1 excel row. This means the variations share the same meta data such as prices, sku, stock, dimensions, images etc . Get "
 msgstr ""
 
-#: includes/products.php:630
+#: includes/products.php:626
 msgid "UPDATING VIA EXPORT SCREEN EXCEL"
 msgstr ""
 
-#: includes/products.php:633
+#: includes/products.php:629
 msgid "Export from export screen selecting ID, SKU and/or TITLE. "
 msgstr ""
 
-#: includes/products.php:637
+#: includes/products.php:633
 msgid "You need to click 'update only' and select the identifier for update(sku,title or ID)."
 msgstr ""
 
-#: includes/products.php:704
+#: includes/products.php:697
 msgid "DATA MAPPING: Drag and drop excel columns on the right to product properties on the left."
 msgstr ""
 
-#: includes/products.php:714
+#: includes/products.php:706
 msgid "UPDATE ONLY"
 msgstr ""
 
-#: includes/products.php:716
+#: includes/products.php:708
 msgid "update by..."
 msgstr ""
 
-#: includes/products.php:718
+#: includes/products.php:710
 msgid "SKU - PRO VERSION"
 msgstr ""
 
-#: includes/products.php:728
+#: includes/products.php:717
 msgid "Always add new Products even if title is the same / will not work for variable products"
 msgstr ""
 
-#: includes/products.php:732
+#: includes/products.php:721
 msgid "Select Parent Categories as well "
 msgstr ""
 
-#: includes/products.php:736
+#: includes/products.php:725
 msgid "Create only Simple Product with Attributes, if any  "
 msgstr ""
 
-#: includes/products.php:736
+#: includes/products.php:725
 msgid "ONLY,"
 msgstr ""
 
-#: includes/products.php:736
+#: includes/products.php:725
 msgid "Not Variations "
 msgstr ""
 
-#: includes/products.php:742
+#: includes/products.php:731
 msgid "Set Last Variation as Default (Variable Products)"
 msgstr ""
 
-#: includes/products.php:745
+#: includes/products.php:734
 msgid "used in cases for adding multiple attribute combinations without having double rows for same attribute value that has been already imported"
 msgstr ""
 
-#: includes/products.php:746
+#: includes/products.php:735
 msgid "Assign Attribute to product even if value is null"
 msgstr ""
 
-#: includes/products.php:751
+#: includes/products.php:740
 msgid "used for variable products cases where all variations share same  prices, dimensions, descriptions, shipping, tax, images and in general data"
 msgstr ""
 
-#: includes/products.php:752
+#: includes/products.php:741
 msgid "Add Variable product from 1 row with attrributes comma separated "
 msgstr ""
 
-#: includes/products.php:784
+#: includes/products.php:771
 msgid "PRODUCT FIELDS"
 msgstr ""
 
-#: includes/products.php:792
+#: includes/products.php:778
 msgid "ID (for update purpose only) "
 msgstr ""
 
-#: includes/products.php:796
+#: includes/products.php:782
 msgid "URL/SLUG "
 msgstr ""
 
-#: includes/products.php:811
+#: includes/products.php:797
 msgid "IMAGE - PRO"
 msgstr ""
 
-#: includes/products.php:815
+#: includes/products.php:801
 msgid "IMAGE GALLERY - PRO"
 msgstr ""
 
-#: includes/products.php:824
+#: includes/products.php:809
 msgid "CUSTOM FIELDS - PRO VERSION"
 msgstr ""
 
-#: includes/products.php:834
+#: includes/products.php:819
 msgid "You dont have any custom fields associated to any product. If there are, please Just create a test product from WordPress backend -add just title and press Publish-. After this action, you will be able to view here any custom field, from Plugins like ACF. In the end you can then delete this test product."
 msgstr ""
 
-#: includes/products.php:840
+#: includes/products.php:824
 msgid "PRODUCT TAXONOMIES - ATTRIBUTES"
 msgstr ""
 
-#: includes/products.php:960
+#: includes/products.php:943
 msgid "For Sale price of"
 msgstr ""
 
-#: includes/products.php:960
-#: includes/products.php:967
-#: includes/products.php:975
-#: includes/products.php:983
-#: includes/products.php:994
-#: includes/products.php:1002
+#: includes/products.php:943
+#: includes/products.php:950
+#: includes/products.php:958
+#: includes/products.php:966
+#: includes/products.php:977
+#: includes/products.php:985
 msgid "you need numbers entered"
 msgstr ""
 
-#: includes/products.php:967
+#: includes/products.php:950
 msgid "For Regular price of"
 msgstr ""
 
-#: includes/products.php:975
+#: includes/products.php:958
 msgid "For Weight of"
 msgstr ""
 
-#: includes/products.php:983
+#: includes/products.php:966
 msgid "For Stock of"
 msgstr ""
 
-#: includes/products.php:994
+#: includes/products.php:977
 msgid "For Length of"
 msgstr ""
 
-#: includes/products.php:1002
+#: includes/products.php:985
 msgid "For Width of"
 msgstr ""
 
-#: includes/products.php:1150
-#: includes/products.php:1203
+#: includes/products.php:1133
+#: includes/products.php:1186
 msgid "already exists. Updated"
 msgstr ""
 
-#: includes/products.php:1154
+#: includes/products.php:1137
 msgid "Does not exist. You need to import based on titles"
 msgstr ""
 
-#: includes/products.php:1158
+#: includes/products.php:1141
 msgid "already exists. "
 msgstr ""
 
-#: includes/products.php:1347
+#: includes/products.php:1330
 msgid "GO VIEW YOUR PRODUCTS!"
 msgstr ""
 
@@ -926,82 +937,78 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: store-migration-excel.php:170
+#: store-migration-excel.php:157
 msgid "Add your Email below & get "
 msgstr ""
 
-#: store-migration-excel.php:170
+#: store-migration-excel.php:157
 msgid " in our PRO plugins! "
 msgstr ""
 
-#: store-migration-excel.php:175
+#: store-migration-excel.php:162
 msgid "Sign up"
 msgstr ""
 
-#: store-migration-excel.php:176
+#: store-migration-excel.php:163
 msgid "By adding your email you will be able to use your email as coupon to a future purchase at "
 msgstr ""
 
-#: store-migration-excel.php:252
-msgid "Settings"
-msgstr ""
-
-#: store-migration-excel.php:280
+#: store-migration-excel.php:311
 msgid "Import Variable, Affiliate, Subscription Products with excel"
 msgstr ""
 
-#: store-migration-excel.php:281
+#: store-migration-excel.php:312
 msgid "WPML support for Product Translations Import "
 msgstr ""
 
-#: store-migration-excel.php:282
+#: store-migration-excel.php:313
 msgid "ACF & YOAST SEO META support for Import in products"
 msgstr ""
 
-#: store-migration-excel.php:283
+#: store-migration-excel.php:314
 msgid "export Variable, Affiliate, Subscription Products to excel"
 msgstr ""
 
-#: store-migration-excel.php:284
+#: store-migration-excel.php:315
 msgid "Products custom Fields Support"
 msgstr ""
 
-#: store-migration-excel.php:285
-msgid "Bulk import taxonomy terms for products  with excel"
+#: store-migration-excel.php:316
+msgid "Bulk import taxonomy terms for products with excel"
 msgstr ""
 
-#: store-migration-excel.php:286
-msgid "import Product Reviews  with excel"
+#: store-migration-excel.php:317
+msgid "import Product Reviews with excel"
 msgstr ""
 
-#: store-migration-excel.php:287
-msgid "export Product Reviews  to excel"
+#: store-migration-excel.php:318
+msgid "export Product Reviews to excel"
 msgstr ""
 
-#: store-migration-excel.php:288
+#: store-migration-excel.php:319
 msgid "import Orders with variable products"
 msgstr ""
 
-#: store-migration-excel.php:289
+#: store-migration-excel.php:320
 msgid "import Orders & apply Coupons"
 msgstr ""
 
-#: store-migration-excel.php:290
+#: store-migration-excel.php:321
 msgid "import/export WooCommerce Subscriptions"
 msgstr ""
 
-#: store-migration-excel.php:291
+#: store-migration-excel.php:322
 msgid "create Customer during Order import"
 msgstr ""
 
-#: store-migration-excel.php:292
+#: store-migration-excel.php:323
 msgid "Customers custom fields Support"
 msgstr ""
 
-#: store-migration-excel.php:293
+#: store-migration-excel.php:324
 msgid ".. and a lot more!"
 msgstr ""
 
-#: store-migration-excel.php:294
+#: store-migration-excel.php:325
 msgid "GET IT HERE"
 msgstr ""
