@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Migrate Import Export WooCommerce Store with Excel
- * Description: Migrate -import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel.
+ * Description: Migrate - import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel.
  * Version: 3.0.0-dev
  * Author: WPFactory
  * Author URI: https://wpfactory.com
@@ -19,12 +19,38 @@
 
 defined( 'ABSPATH' ) || exit;
 
+defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1319' );
+
+defined( 'WPFACTORY_WC_PROCM_FILE' ) || define( 'WPFACTORY_WC_PROCM_FILE', __FILE__ );
+
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpfactory-wc-procm.php';
+
+if ( ! function_exists( 'wpfactory_wc_procm' ) ) {
+	/**
+	 * Returns the main instance of WPFactory_WC_PROCM to prevent the need to use globals.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	function wpfactory_wc_procm() {
+		return WPFactory_WC_PROCM::instance();
+	}
+}
+
+add_action( 'plugins_loaded', 'wpfactory_wc_procm' );
+
+/**
+ * includes.
+ */
 require_once plugin_dir_path( __FILE__ ) . '/class-main.php';
 require_once plugin_dir_path( __FILE__ ) . '/includes/products.php';
 require_once plugin_dir_path( __FILE__ ) . '/includes/customers.php';
 require_once plugin_dir_path( __FILE__ ) . '/includes/orders.php';
 require_once plugin_dir_path( __FILE__ ) . '/includes/coupons.php';
 
+/**
+ * StoreMigrationWooCommerce class.
+ */
 class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 		public $plugin       = 'eshopMigrationWooCommerce';
@@ -269,4 +295,5 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 			<?php
 	}
 }
+
 $instantiate = new StoreMigrationWooCommerce();
