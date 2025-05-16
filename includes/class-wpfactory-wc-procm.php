@@ -103,6 +103,7 @@ final class WPFactory_WC_PROCM {
 				WPFACTORY_WC_PROCM_FILE,
 				true
 			);
+		}
 	}
 
 	/**
