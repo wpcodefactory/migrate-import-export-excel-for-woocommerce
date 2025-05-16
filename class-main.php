@@ -1,8 +1,13 @@
 <?php
+/**
+ * Migrate Import Export WooCommerce Store with Excel - StoreMigrationWooCommerceInit Class
+ *
+ * @version 3.0.0
+ *
+ * @author  WPFactory
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'PhpOffice\PhpSpreadsheet\IOFactory' ) ) {
 	include plugin_dir_path( __FILE__ ) . '/Classes/vendor/autoload.php';
@@ -28,14 +33,19 @@ class StoreMigrationWooCommerceInit {
 	public $offset              = '';
 	public $productCustomFields = 'productCustomFields';
 
+	/**
+	 * adminHeader.
+	 *
+	 * @version 3.0.0
+	 */
 	public function adminHeader() {
-
-		print '<h1>';
+		echo '<h1>';
 		if ( ! isset( $_GET['tab'] ) || $this->activeTab == 'intro' ) {
 		} else {
 			echo "<a class='arrows' href='?page=" . esc_html( $this->slug ) . "'><i class='arrows fa fa-arrow-left'></i></a>";
 		}
-		print $this->name . '</h1>';
+		esc_html_e( 'Store Migration Products Orders Import Export with Excel for WooCommerce', 'store-migration-products-orders-import-export-with-excel' );
+		echo '</h1>';
 	}
 
 	public function adminTabs() {
@@ -76,20 +86,20 @@ class StoreMigrationWooCommerceInit {
 	public function adminFaq() {
 		?>
 					<div id="accordion">
-						
+
 						<h3><?php esc_html_e( 'Migration Process Sequence', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
-						
+
 						<div>
 							<p><?php esc_html_e( 'Prerequisite for creating an order is products import.', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 							<p><?php esc_html_e( 'Example:', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 							<ol>
 								<li><?php esc_html_e( 'Import Products', 'store-migration-products-orders-import-export-with-excel' ); ?></li>
-								<li class='proVersion'><?php esc_html_e( 'Import Product Reviews - pro version', 'store-migration-products-orders-import-export-with-excel' ); ?></li>	
+								<li class='proVersion'><?php esc_html_e( 'Import Product Reviews - pro version', 'store-migration-products-orders-import-export-with-excel' ); ?></li>
 								<li><?php esc_html_e( 'Import Coupons - optional', 'store-migration-products-orders-import-export-with-excel' ); ?></li>
 								<li><?php esc_html_e( 'Import Customers  - optional', 'store-migration-products-orders-import-export-with-excel' ); ?></li>
-								<li><?php esc_html_e( 'Import Orders - assign to already created customer or guest', 'store-migration-products-orders-import-export-with-excel' ); ?></li>								
+								<li><?php esc_html_e( 'Import Orders - assign to already created customer or guest', 'store-migration-products-orders-import-export-with-excel' ); ?></li>
 							</ol>
-							
+
 						</div>
 
 						<h3><?php esc_html_e( 'Should customers be added before orders?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
@@ -97,53 +107,53 @@ class StoreMigrationWooCommerceInit {
 								<p><?php esc_html_e( 'This is optional. You either:', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 								<ol>
 									<li><?php esc_html_e( 'Import Customers  first, then the order', 'store-migration-products-orders-import-export-with-excel' ); ?></li>
-									<li class='proVersion'><?php esc_html_e( 'PRO VERSION - Import directly the Orders and either create new customer while creating the Order or just check as guest', 'store-migration-products-orders-import-export-with-excel' ); ?></li>								
-								</ol>                              
+									<li class='proVersion'><?php esc_html_e( 'PRO VERSION - Import directly the Orders and either create new customer while creating the Order or just check as guest', 'store-migration-products-orders-import-export-with-excel' ); ?></li>
+								</ol>
 
-						</div>	
+						</div>
 						<h3><?php esc_html_e( 'Am I required to first import products?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'You need to import products before trying to add any orders - during order import, product will not be created if not exist', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-							
+
 
 						</div>
 						<h3><?php esc_html_e( 'How is Tax calculated in Orders?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'You can create the tax class, the edit existing products defining the Tax Class and Status, or while importing products from the excel file, define tax status and class for each imported product', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 								<p><?php esc_html_e( 'Then, while importing Order tax will be calculated automatically', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-							
 
-						</div>	
+
+						</div>
 						<h3><?php esc_html_e( 'How is Shipping added in Orders?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'You will add a shipping method ', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 								<p><?php esc_html_e( 'Moreover you will define in the excel file the total shipping cost', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-							
 
-						</div>	
+
+						</div>
 
 						<h3><?php esc_html_e( 'How to add Product Reviews?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'This feature is available in the ', 'store-migration-products-orders-import-export-with-excel' ); ?><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a></p>
-							
-						</div>	
+
+						</div>
 
 						<h3><?php esc_html_e( 'How to import Variable Products?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'This feature is available in the ', 'store-migration-products-orders-import-export-with-excel' ); ?><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a></p>
-							
-						</div>	
+
+						</div>
 
 						<h3><?php esc_html_e( 'How to import Orders with Variable Products?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'This feature is available in the ', 'store-migration-products-orders-import-export-with-excel' ); ?><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a></p>
-							
+
 						</div>
 						<h3><?php esc_html_e( 'How to import WooCommerce Subscriptions ?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'This feature is available in the ', 'store-migration-products-orders-import-export-with-excel' ); ?><a target='_blank' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ); ?></a></p>
-							
-						</div>						
+
+						</div>
 					</div>
 		<?php
 	}
@@ -166,28 +176,28 @@ class StoreMigrationWooCommerceInit {
 			?>
 				<div class='procsmeIntro'>
 				<h2><?php print esc_html( 'migration process', 'store-migration-products-orders-import-export-with-excel' ); ?></h2>
-					
+
 					<div class='flex'>
 						<div><span class='sequence'>A)</span></div>
 						<div><span class='sequence'>B)</span></div>
 						<div><span class='sequence'>C)</span></div>
 					</div>
-				
+
 					<div class='flex'>
 						<div class=''>
-							
+
 							<div class='flex'>
-								
+
 								<a class='circular' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'importProducts', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'products', 'store-migration-products-orders-import-export-with-excel' ); ?></a> <i class='arrows fa fa-arrow-right'></i>
 							</div>
 
-							<a class='circular customers' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'customers', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'customers', 'store-migration-products-orders-import-export-with-excel' ); ?></a> 
-							
-							
+							<a class='circular customers' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'customers', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'customers', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
+
+
 						</div>
 
 						<div>
-							
+
 							<a class='circular reviews proVersion' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'reviews', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'reviews', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
 							<a class='circular coupons' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'coupons', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'coupons', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
 						</div>
@@ -195,13 +205,13 @@ class StoreMigrationWooCommerceInit {
 							<i class='arrows fa fa-arrow-right' ></i>
 						</div>
 						<div>
-							
-							<a class='circular orders' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'orders', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'orders', 'store-migration-products-orders-import-export-with-excel' ); ?></a> 
+
+							<a class='circular orders' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'orders', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'orders', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
 						</div>
 						<div>
-							
-							<a class='circular subscriptions' target='_blank' href='<?php print esc_url( $this->proUrl ); ?>' ><?php print esc_html( 'subscriptions', 'store-migration-products-orders-import-export-with-excel' ); ?></a> 
-						</div>						
+
+							<a class='circular subscriptions' target='_blank' href='<?php print esc_url( $this->proUrl ); ?>' ><?php print esc_html( 'subscriptions', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
+						</div>
 					</div>
 				</div>
 				<?php

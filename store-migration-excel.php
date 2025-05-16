@@ -24,7 +24,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1423' );
+defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1641' );
 
 defined( 'WPFACTORY_WC_PROCM_FILE' ) || define( 'WPFACTORY_WC_PROCM_FILE', __FILE__ );
 
@@ -63,14 +63,9 @@ require_once plugin_dir_path( __FILE__ ) . '/includes/coupons.php';
  */
 class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
-	public $plugin       = 'eshopMigrationWooCommerce';
-	public $name         = 'Store Migration Products Orders Import Export with Excel for WooCommerce';
-	public $shortName    = 'Store Migration';
-	public $slug         = 'store-migration-woocommerce';
-	public $dashicon     = 'dashicons-cart';
-	public $proUrl       = 'https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel';
-	public $menuPosition = '50';
-	public $description  = 'Migrate -import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel';
+	public $plugin = 'eshopMigrationWooCommerce';
+	public $slug   = 'store-migration-woocommerce';
+	public $proUrl = 'https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel';
 
 	/**
 	 * Constructor.
