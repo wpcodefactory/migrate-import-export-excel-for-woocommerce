@@ -93,27 +93,27 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		$coupons  = new StoreMigrationWooCommerce_Coupons();
 
 		add_action( 'wp_ajax_nopriv_import_process', array( $products, 'import_process' ) );
-		add_action( 'wp_ajax_import_process', array( $products, 'import_process' ) );
+		add_action( 'wp_ajax_import_process',        array( $products, 'import_process' ) );
 
-		add_action( 'wp_ajax_export_process', array( $products, 'export_process' ) );
+		add_action( 'wp_ajax_export_process',        array( $products, 'export_process' ) );
 		add_action( 'wp_ajax_nopriv_export_process', array( $products, 'export_process' ) );
 
-		add_action( 'wp_ajax_exportUsers_process', array( $users, 'exportUsers_process' ) );
+		add_action( 'wp_ajax_exportUsers_process',        array( $users, 'exportUsers_process' ) );
 		add_action( 'wp_ajax_nopriv_exportUsers_process', array( $users, 'exportUsers_process' ) );
 
-		add_action( 'wp_ajax_exportCoupons_process', array( $coupons, 'exportCoupons_process' ) );
+		add_action( 'wp_ajax_exportCoupons_process',        array( $coupons, 'exportCoupons_process' ) );
 		add_action( 'wp_ajax_nopriv_exportCoupons_process', array( $coupons, 'exportCoupons_process' ) );
 
-		add_action( 'wp_ajax_exportOrders_process', array( $orders, 'exportOrders_process' ) );
+		add_action( 'wp_ajax_exportOrders_process',        array( $orders, 'exportOrders_process' ) );
 		add_action( 'wp_ajax_nopriv_exportOrders_process', array( $orders, 'exportOrders_process' ) );
 
-		add_action( 'wp_ajax_importCustomers_process', array( $users, 'importCustomers_process' ) );
+		add_action( 'wp_ajax_importCustomers_process',        array( $users, 'importCustomers_process' ) );
 		add_action( 'wp_ajax_nopriv_importCustomers_process', array( $users, 'importCustomers_process' ) );
 
-		add_action( 'wp_ajax_importCoupons_process', array( $coupons, 'importCoupons_process' ) );
+		add_action( 'wp_ajax_importCoupons_process',        array( $coupons, 'importCoupons_process' ) );
 		add_action( 'wp_ajax_nopriv_importCoupons_process', array( $coupons, 'importCoupons_process' ) );
 
-		add_action( 'wp_ajax_importOrders_process', array( $orders, 'importOrders_process' ) );
+		add_action( 'wp_ajax_importOrders_process',        array( $orders, 'importOrders_process' ) );
 		add_action( 'wp_ajax_nopriv_importOrders_process', array( $orders, 'importOrders_process' ) );
 
 		add_filter( 'woocommerce_order_data_store_cpt_get_orders_query', array( $this, 'handle_custom_query_var' ), 10, 2 );
@@ -138,7 +138,7 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 		add_action( 'admin_notices', array( $this, 'notification' ) );
 		add_action( 'wp_ajax_nopriv_push_not', array( $this, 'push_not' ) );
-		add_action( 'wp_ajax_push_not', array( $this, 'push_not' ) );
+		add_action( 'wp_ajax_push_not',        array( $this, 'push_not' ) );
 
 	}
 
@@ -152,7 +152,7 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 			return;
 		}
 
-		/* Check transient, if available display notice */
+		// Check transient, if available display notice
 		if ( get_transient( $this->plugin . '_notification' ) ) {
 			?>
 			<div class="updated notice eshopMigrationWooCommerce_notification">
@@ -198,13 +198,14 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 	/**
 	 * BackEndScripts.
+	 *
+	 * @version 3.0.0
 	 */
 	public function BackEndScripts( $hook ) {
 
 		$screen = get_current_screen();
 
 		wp_enqueue_style( esc_html( $this->plugin ) . 'adminCss', plugins_url( '/css/backend.css?v=olu', __FILE__ ) );
-		wp_enqueue_style( esc_html( $this->plugin ) . 'adminCss' );
 
 		wp_enqueue_script( 'jquery' );
 		wp_enqueue_media();
@@ -212,13 +213,10 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		wp_enqueue_script( 'jquery-ui-tabs' );
 		wp_enqueue_style( esc_html( $this->plugin ) . 'ui_style', plugins_url( '/css/jquery-ui.css', __FILE__ ) );
 		wp_enqueue_script( esc_html( $this->plugin ) . 'xlsx', plugins_url( '/js/xlsx.js', __FILE__ ), array( 'jquery' ), null, true );
-		wp_enqueue_script( esc_html( $this->plugin ) . 'xlsx' );
 
 		wp_enqueue_script( esc_html( $this->plugin ) . 'filesaver', plugins_url( '/js/filesaver.js', __FILE__ ), array( 'jquery' ), null, true );
-		wp_enqueue_script( esc_html( $this->plugin ) . 'filesaver' );
 
 		wp_enqueue_script( esc_html( $this->plugin ) . 'tableexport', plugins_url( '/js/tableexport.js', __FILE__ ), array( 'jquery' ), null, true );
-		wp_enqueue_script( esc_html( $this->plugin ) . 'tableexport' );
 
 		if ( ! wp_script_is( esc_html( $this->plugin ) . '_fa', 'enqueued' ) ) {
 			wp_enqueue_style( esc_html( $this->plugin ) . '_fa', plugins_url( '/css/font-awesome.min.css', __FILE__ ) );
@@ -236,7 +234,7 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 			'exportfile'     => plugins_url( '/js/tableexport.js', __FILE__ ),
 		);
 		wp_localize_script( esc_html( $this->plugin ) . 'adminJs', esc_html( $this->plugin ), $this->localizeBackend );
-		wp_enqueue_script( esc_html( $this->plugin ) . 'adminJs' );
+
 	}
 
 	/**
