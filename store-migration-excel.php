@@ -19,7 +19,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1332' );
+defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1403' );
 
 defined( 'WPFACTORY_WC_PROCM_FILE' ) || define( 'WPFACTORY_WC_PROCM_FILE', __FILE__ );
 
@@ -74,7 +74,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 	 */
 	public function __construct() {
 
-		add_action( 'plugins_loaded', array( $this, 'translate' ) );
 		add_action( 'admin_init', array( $this, 'adminPanels' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'BackEndScripts' ) );
@@ -202,10 +201,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 	public function print_scripts() {
 				// if want to print some inline script
-	}
-
-	public function translate() {
-		load_plugin_textdomain( $this->plugin, false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 	}
 
 	public function BackEndScripts( $hook ) {

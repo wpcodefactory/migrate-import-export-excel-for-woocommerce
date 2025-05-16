@@ -61,11 +61,28 @@ final class WPFactory_WC_PROCM {
 			return;
 		}
 
+		// Set up localisation
+		add_action( 'init', array( $this, 'localize' ) );
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin();
 		}
 
+	}
+
+	/**
+	 * localize.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
+	 */
+	function localize() {
+		load_plugin_textdomain(
+			'store-migration-products-orders-import-export-with-excel',
+			false,
+			dirname( plugin_basename( WPFACTORY_WC_PROCM_FILE ) ) . '/lang/'
+		);
 	}
 
 	/**
