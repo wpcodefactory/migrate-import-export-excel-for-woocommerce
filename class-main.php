@@ -115,20 +115,17 @@ class StoreMigrationWooCommerceInit {
 						<div>
 								<p><?php esc_html_e( 'You need to import products before trying to add any orders - during order import, product will not be created if not exist', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 
-
 						</div>
 						<h3><?php esc_html_e( 'How is Tax calculated in Orders?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'You can create the tax class, the edit existing products defining the Tax Class and Status, or while importing products from the excel file, define tax status and class for each imported product', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 								<p><?php esc_html_e( 'Then, while importing Order tax will be calculated automatically', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 
-
 						</div>
 						<h3><?php esc_html_e( 'How is Shipping added in Orders?', 'store-migration-products-orders-import-export-with-excel' ); ?></h3>
 						<div>
 								<p><?php esc_html_e( 'You will add a shipping method ', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
 								<p><?php esc_html_e( 'Moreover you will define in the excel file the total shipping cost', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-
 
 						</div>
 
@@ -192,7 +189,6 @@ class StoreMigrationWooCommerceInit {
 							</div>
 
 							<a class='circular customers' href='?page=<?php print esc_html( $this->slug ) . '&tab=' . esc_html( 'customers', 'store-migration-products-orders-import-export-with-excel' ); ?>'><?php print esc_html( 'customers', 'store-migration-products-orders-import-export-with-excel' ); ?></a>
-
 
 						</div>
 
@@ -411,7 +407,6 @@ class StoreMigrationWooCommerceInit {
 		}
 	}
 
-
 	public function adminFooter() {
 		?>
 				<hr>
@@ -421,13 +416,9 @@ class StoreMigrationWooCommerceInit {
 		<?php
 	}
 
-
-
-
 	public function adminPanels() {
 		add_settings_section( $this->plugin . 'general', '', null, $this->plugin . 'general-options' );
 	}
-
 
 	public function adminProcessSettings() {
 	}

@@ -1,4 +1,8 @@
-
+/**
+ * Migrate Import Export WooCommerce Store with Excel - Backend CSS
+ *
+ * @author  WPFactory
+ */
 
 /* === Main Container === */
 
@@ -18,7 +22,7 @@
 }
 .web_logo img{
 	width:150px;
-	height:auto;	
+	height:auto;
 }
 
 
@@ -103,18 +107,18 @@
 
 .eshopMigrationWooCommerce .uploader {
 	position:relative;
-	width:99%; 
+	width:99%;
 	height:300px;
-	background:#f3f3f3; 
+	background:#f3f3f3;
 	border:1px dashed #e8e8e8;
 	background-size:cover;
 	margin:0 auto;
 	text-align:center;
 	background:url('../images/default.png') no-repeat left center;
 }
-.productsFile, .usersImportFile,  .ordersImportFile, .couponsImportFile{		
+.productsFile, .usersImportFile,  .ordersImportFile, .couponsImportFile{
 	width:100%;
-	position:absolute;	
+	position:absolute;
 	height:300px;
 	top:0;
 	left:0;
@@ -306,18 +310,18 @@
 	font-size:60px;
 	font-family:segoe print;
     width: 130px;
-    height: 50px; 
+    height: 50px;
     color: #C35727;
     display:inline-block;
     line-height:50px;
-	margin:10px 30px;	
+	margin:10px 30px;
 	text-align:center;
 }
 
 .procsmeIntro .circular{
     border-radius: 1000%;
     width: 130px;
-    height: 130px; 
+    height: 130px;
     background: green;
     display:inline-block;
     line-height:130px;
@@ -413,7 +417,7 @@ span.proVersion{
 /* Modal Content/Box */
 #eshopMigrationWooCommerceModal .modal-content {
     background-color: #fefefe;
-    margin: 10% auto; 
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 50%; /* Could be more or less, depending on screen size */
@@ -443,12 +447,12 @@ span.proVersion{
 		float:none;
 		width:99%;
 	}
-	
+
 	.eshopMigrationWooCommercecolumns2,.eshopMigrationWooCommercecolumns3,.eshopMigrationWooCommercecolumns4,.eshopMigrationWooCommercecolumns5,.eshopMigrationWooCommercecolumns6{
 		float:none;
 		width:99%;
-	}	
-	
+	}
+
 	.eshopMigrationWooCommerce  .left_wrap, .eshopMigrationWooCommerce .right_wrap{
 		float:none;
 		width:100%;
@@ -457,6 +461,6 @@ span.proVersion{
 
 	.eshopMigrationWooCommerce .border{
 		border-right:none;
-	}		
-		
+	}
+
 }
