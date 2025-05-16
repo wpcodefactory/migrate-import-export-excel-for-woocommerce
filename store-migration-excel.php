@@ -87,9 +87,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 		add_action( 'admin_footer', array( $this, 'proModal' ) );
 
-		register_activation_hook( __FILE__, array( $this, 'onActivation' ) );
-		register_deactivation_hook( __FILE__, array( $this, 'onDeactivation' ) );
-
 		$products = new StoreMigrationWooCommerce_Products();
 		$users    = new StoreMigrationWooCommerce_Customers();
 		$orders   = new StoreMigrationWooCommerce_Orders();
@@ -121,7 +118,7 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 		add_filter( 'woocommerce_order_data_store_cpt_get_orders_query', array( $this, 'handle_custom_query_var' ), 10, 2 );
 
-		// deactivation survey
+		// Deactivation survey
 
 		include plugin_dir_path( __FILE__ ) . '/lib/codecabin/plugin-deactivation-survey/deactivate-feedback-form.php';
 		add_filter(
@@ -145,6 +142,9 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 	}
 
+	/**
+	 * notification.
+	 */
 	public function notification() {
 
 		$screen = get_current_screen();
@@ -172,14 +172,23 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		}
 	}
 
+	/**
+	 * push_not.
+	 */
 	public function push_not() {
 		delete_transient( $this->plugin . '_notification' );
 	}
 
+	/**
+	 * notification_hook.
+	 */
 	public function notification_hook() {
 		set_transient( $this->plugin . '_notification', true );
 	}
 
+	/**
+	 * handle_custom_query_var.
+	 */
 	public function handle_custom_query_var( $query, $query_vars ) {
 		if ( isset( $query_vars['s'] ) && ! empty( $query_vars['s'] ) ) {
 			$query['s'] = esc_attr( $query_vars['s'] );
@@ -187,16 +196,9 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		return $query;
 	}
 
-	public function onActivation( $hook ) {
-	}
-
-	function onDeactivation() {
-	}
-
-	public function print_scripts() {
-		// if want to print some inline script
-	}
-
+	/**
+	 * BackEndScripts.
+	 */
 	public function BackEndScripts( $hook ) {
 
 		$screen = get_current_screen();
@@ -237,6 +239,9 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		wp_enqueue_script( esc_html( $this->plugin ) . 'adminJs' );
 	}
 
+	/**
+	 * init.
+	 */
 	public function init() {
 		print "<div class='" . esc_attr( $this->plugin ) . "'>";
 			$this->adminHeader();
@@ -245,6 +250,9 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		print '</div>';
 	}
 
+	/**
+	 * proModal.
+	 */
 	public function proModal() {
 		?>
 		<div id="<?php print esc_html( $this->plugin ) . 'Modal'; ?>" style='display:none;'>
