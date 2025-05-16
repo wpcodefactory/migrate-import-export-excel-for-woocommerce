@@ -81,7 +81,7 @@ final class WPFactory_WC_PROCM {
 		load_plugin_textdomain(
 			'store-migration-products-orders-import-export-with-excel',
 			false,
-			dirname( plugin_basename( WPFACTORY_WC_PROCM_FILE ) ) . '/lang/'
+			dirname( plugin_basename( WPFACTORY_WC_PROCM_FILE ) ) . '/langs/'
 		);
 	}
 
