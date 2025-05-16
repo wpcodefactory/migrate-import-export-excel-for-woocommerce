@@ -85,15 +85,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 		add_action( 'wpfactory_wc_procm_output_settings', array( $this, 'init' ) );
 
-		add_action(
-			'before_woocommerce_init',
-			function () {
-				if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-					\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', __FILE__, true );
-				}
-			}
-		);
-
 		add_action( 'admin_footer', array( $this, 'proModal' ) );
 
 		register_activation_hook( __FILE__, array( $this, 'onActivation' ) );

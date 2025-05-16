@@ -64,6 +64,9 @@ final class WPFactory_WC_PROCM {
 		// Set up localisation
 		add_action( 'init', array( $this, 'localize' ) );
 
+		// Declare compatibility with custom order tables for WooCommerce
+		add_action( 'before_woocommerce_init', array( $this, 'wc_declare_compatibility' ) );
+
 		// Admin
 		if ( is_admin() ) {
 			$this->admin();
@@ -83,6 +86,23 @@ final class WPFactory_WC_PROCM {
 			false,
 			dirname( plugin_basename( WPFACTORY_WC_PROCM_FILE ) ) . '/langs/'
 		);
+	}
+
+	/**
+	 * wc_declare_compatibility.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
+	 *
+	 * @see     https://developer.woocommerce.com/docs/hpos-extension-recipe-book/
+	 */
+	function wc_declare_compatibility() {
+		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
+				'custom_order_tables',
+				WPFACTORY_WC_PROCM_FILE,
+				true
+			);
 	}
 
 	/**
