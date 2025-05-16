@@ -7,7 +7,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-
 if ( ! class_exists( 'PhpOffice\PhpSpreadsheet\IOFactory' ) ) {
 	include plugin_dir_path( __FILE__ ) . '../Classes/vendor/autoload.php';
 }
@@ -114,7 +113,6 @@ class StoreMigrationWooCommerce_Coupons {
 									?>
 																	</p>
 
-
 								<input type='hidden' name='couponsfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
 								<input type='hidden' name='action' value='importCoupons_process' />
@@ -125,13 +123,11 @@ class StoreMigrationWooCommerce_Coupons {
 
 							</div>
 
-
 							<div class='columns2'>
 
 								<h2>
 									<?php esc_html_e( 'COUPONS FIELDS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-
 
 								<?php
 
@@ -164,11 +160,7 @@ class StoreMigrationWooCommerce_Coupons {
 
 								?>
 
-
-
 							</div>
-
-
 
 						</form>
 					</div>
@@ -182,7 +174,6 @@ class StoreMigrationWooCommerce_Coupons {
 			}
 		}
 	}
-
 
 	public function importCoupons_process() {
 
@@ -292,8 +283,6 @@ class StoreMigrationWooCommerce_Coupons {
 		}
 	}
 
-
-
 	public function exportCouponsForm() {
 		?>
 				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i>
@@ -362,7 +351,6 @@ class StoreMigrationWooCommerce_Coupons {
 							?>
 						</tr>
 					</table>
-
 
 					<input type='hidden' name='columnsToShow' value='1'  />
 					<input type='hidden' id='action' name='action' value='exportCoupons_process' />
@@ -486,7 +474,6 @@ class StoreMigrationWooCommerce_Coupons {
 			}
 		}//check request
 	}
-
 
 	public function exportCoupons_process() {
 

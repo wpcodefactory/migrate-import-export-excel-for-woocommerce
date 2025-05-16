@@ -27,7 +27,6 @@ class StoreMigrationWooCommerce_Products {
 	public $plugin              = 'eshopMigrationWooCommerce';
 	public $proUrl              = 'https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel';
 
-
 	public function custom_product_fields() {
 
 			global $wpdb;
@@ -48,7 +47,6 @@ class StoreMigrationWooCommerce_Products {
 			return $meta_keys;
 		}
 	}
-
 
 	public function exportProductsDisplay() {
 		?>
@@ -189,7 +187,6 @@ class StoreMigrationWooCommerce_Products {
 
 					<?php $taxonomy_objects = get_object_taxonomies( 'product', 'objects' ); ?>
 
-
 					<table class='wp-list-table widefat fixed table table-bordered tax_checks'>
 						<legend>
 							<h2>
@@ -224,7 +221,6 @@ class StoreMigrationWooCommerce_Products {
 							?>
 						</tr>
 					</table>
-
 
 					<table class='wp-list-table widefat fixed table table-bordered fields_checks'>
 						<legend>
@@ -371,7 +367,6 @@ class StoreMigrationWooCommerce_Products {
 				<div id="myBar"></div>
 			</div>
 
-
 			<div class='exportTableWrapper'>
 				<table id='toExport'>
 					<thead>
@@ -408,7 +403,6 @@ class StoreMigrationWooCommerce_Products {
 
 		}//check request
 	}
-
 
 	public function export_process() {
 
@@ -577,7 +571,6 @@ class StoreMigrationWooCommerce_Products {
 		}//check request
 	}
 
-
 	public function importProductsDisplay() {
 
 		?>
@@ -666,9 +659,6 @@ class StoreMigrationWooCommerce_Products {
 		<?php
 	}
 
-
-
-
 	public function importProducts() {
 
 		if ( $_SERVER['REQUEST_METHOD'] === 'POST' && current_user_can( 'administrator' ) && isset( $_POST['importProducts'] ) ) {
@@ -710,7 +700,6 @@ class StoreMigrationWooCommerce_Products {
 								<i ><b > <?php esc_html_e( 'Auto Match Columns - PRO', 'store-migration-products-orders-import-export-with-excel' ); ?> <input type='checkbox' disabled  /> </b></i>
 							</p>
 
-
 							<div class='columns3 border'>
 
 								<p class=' update_onlyField'>
@@ -723,9 +712,6 @@ class StoreMigrationWooCommerce_Products {
 									</select>
 
 								</p>
-
-
-
 
 								<p class='hideOnUpdateById'>
 									<input type='checkbox' name='add_always_new' id='add_always_new' value='yes'  /> <b> <?php esc_html_e( 'Always add new Products even if title is the same / will not work for variable products', 'store-migration-products-orders-import-export-with-excel' ); ?> </b>
@@ -757,7 +743,6 @@ class StoreMigrationWooCommerce_Products {
 									</b>
 								</p>
 
-
 								<h2>
 									<?php esc_html_e( 'EXCEL COLUMNS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
@@ -769,7 +754,6 @@ class StoreMigrationWooCommerce_Products {
 									}
 									?>
 																	</p>
-
 
 								<input type='hidden' name='importfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
@@ -786,7 +770,6 @@ class StoreMigrationWooCommerce_Products {
 								<h2>
 									<?php esc_html_e( 'PRODUCT FIELDS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-
 
 								<?php
 								foreach ( $post_meta as $meta ) {
@@ -820,7 +803,6 @@ class StoreMigrationWooCommerce_Products {
 
 							</div>
 
-
 							<div class='columns3'>
 
 									<h2 class='proVersion' >
@@ -837,7 +819,6 @@ class StoreMigrationWooCommerce_Products {
 										print '<i>' . esc_html__( 'You dont have any custom fields associated to any product. If there are, please Just create a test product from WordPress backend -add just title and press Publish-. After this action, you will be able to view here any custom field, from Plugins like ACF. In the end you can then delete this test product.', 'store-migration-products-orders-import-export-with-excel' ) . '</i>';
 									}
 									?>
-
 
 								<h2>
 									<?php esc_html_e( 'PRODUCT TAXONOMIES - ATTRIBUTES', 'store-migration-products-orders-import-export-with-excel' ); ?>
@@ -859,7 +840,6 @@ class StoreMigrationWooCommerce_Products {
 									}
 								}
 								?>
-
 
 							</div>
 						</form>

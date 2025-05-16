@@ -15,7 +15,6 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class StoreMigrationWooCommerce_Customers {
 
-
 	public $numberOfRows   = 1;
 	public $posts_per_page = '';
 	public $role           = '';
@@ -272,8 +271,6 @@ class StoreMigrationWooCommerce_Customers {
 		'Zimbabwe'                                     => 'ZW',
 	);
 
-
-
 	public function importUsersDisplay() {
 		?>
 		<h2>
@@ -285,7 +282,6 @@ class StoreMigrationWooCommerce_Customers {
 				<?php esc_html_e( 'Customers Excel Sample', 'store-migration-products-orders-import-export-with-excel' ); ?>
 			</a>
 		</p>
-
 
 		<div>
 			<form method="post" id='user_import' enctype="multipart/form-data" action= "<?php echo admin_url( 'admin.php?page=store-migration-woocommerce&tab=customers' ); ?>">
@@ -379,7 +375,6 @@ class StoreMigrationWooCommerce_Customers {
 									?>
 																	</p>
 
-
 								<input type='hidden' name='customersfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
 								<input type='hidden' name='action' value='importCustomers_process' />
@@ -424,11 +419,7 @@ class StoreMigrationWooCommerce_Customers {
 								}
 								?>
 
-
-
 							</div>
-
-
 
 						</form>
 					</div>
@@ -551,7 +542,6 @@ class StoreMigrationWooCommerce_Customers {
 		}
 	}
 
-
 	public function exportUsersForm() {
 		?>
 				<p class='exportToggler button button-secondary warning   btn btn-danger'><i class='fa fa-eye '></i>
@@ -562,7 +552,6 @@ class StoreMigrationWooCommerce_Customers {
 					<table class='wp-list-table widefat fixed table table-bordered'>
 
 					<tr>
-
 
 							<td>
 							<?php esc_html_e( 'From Creation Date', 'store-migration-products-orders-import-export-with-excel' ); ?>
@@ -584,8 +573,6 @@ class StoreMigrationWooCommerce_Customers {
 							<td>
 								<input type='number' min="1" max="100000" style='width:100%;'  name='posts_per_page' id='posts_per_page' placeholder='<?php esc_html_e( 'Number to display..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							</td>
-
-
 
 							<input type='hidden' name='offset' style='width:100%;' id='offset' placeholder='<?php esc_html_e( 'Start from..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							<input type='hidden' name='start' /><input type='hidden' name='total' />
@@ -637,7 +624,6 @@ class StoreMigrationWooCommerce_Customers {
 							?>
 						</tr>
 					</table>
-
 
 					<input type='hidden' name='columnsToShow' value='1'  />
 					<input type='hidden' id='action' name='action' value='exportUsers_process' />
@@ -764,7 +750,6 @@ class StoreMigrationWooCommerce_Customers {
 			}
 		}//check request
 	}
-
 
 	public function exportUsers_process() {
 

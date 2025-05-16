@@ -11,7 +11,6 @@ if ( ! class_exists( 'PhpOffice\PhpSpreadsheet\IOFactory' ) ) {
 	include plugin_dir_path( __FILE__ ) . '../Classes/vendor/autoload.php';
 }
 
-
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class StoreMigrationWooCommerce_Orders {
@@ -396,7 +395,6 @@ class StoreMigrationWooCommerce_Orders {
 									?>
 																	</p>
 
-
 								<input type='hidden' name='ordersfinalupload' value='<?php print esc_attr( $total ); ?>' />
 								<input type='hidden' name='start' value='2' />
 								<input type='hidden' name='action' value='importOrders_process' />
@@ -407,13 +405,11 @@ class StoreMigrationWooCommerce_Orders {
 
 							</div>
 
-
 							<div class='columns2'>
 
 								<h2>
 									<?php esc_html_e( 'ORDERS FIELDS', 'store-migration-products-orders-import-export-with-excel' ); ?>
 								</h2>
-
 
 								<?php
 
@@ -437,11 +433,7 @@ class StoreMigrationWooCommerce_Orders {
 
 								?>
 
-
-
 							</div>
-
-
 
 						</form>
 					</div>
@@ -455,7 +447,6 @@ class StoreMigrationWooCommerce_Orders {
 			}
 		}
 	}
-
 
 	public function importOrders_process() {
 
@@ -730,8 +721,6 @@ class StoreMigrationWooCommerce_Orders {
 		}
 	}
 
-
-
 	public function exportOrdersForm() {
 
 		?>
@@ -790,9 +779,6 @@ class StoreMigrationWooCommerce_Orders {
 								<input type='number' min="1" max="100000" style='width:100%;'  name='posts_per_page' id='posts_per_page' placeholder='<?php esc_html_e( 'Number to display..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							</td>
 
-
-
-
 							<input type='hidden' name='offset' style='width:100%;' id='offset' placeholder='<?php esc_html_e( 'Start from..', 'store-migration-products-orders-import-export-with-excel' ); ?>' />
 							<input type='hidden' name='start' /><input type='hidden' name='total' />
 
@@ -833,7 +819,6 @@ class StoreMigrationWooCommerce_Orders {
 							?>
 						</tr>
 					</table>
-
 
 					<input type='hidden' name='columnsToShow' value='1'  />
 					<input type='hidden' id='action' name='action' value='exportOrders_process' />
@@ -917,8 +902,6 @@ class StoreMigrationWooCommerce_Orders {
 
 				?>
 
-
-
 				<div id="myProgress">
 					<div id="myBar"></div>
 				</div>
@@ -957,7 +940,6 @@ class StoreMigrationWooCommerce_Orders {
 			}
 		}//check request
 	}
-
 
 	public function exportOrders_process() {
 
@@ -1102,7 +1084,6 @@ class StoreMigrationWooCommerce_Orders {
 									<td><?php print esc_html( $order->get_shipping_address_2() ); ?></td>
 								<?php } ?>
 
-
 									<?php if ( $meta === 'get_total_tax()' ) { ?>
 									<td><?php print $order->get_total_tax(); ?></td>
 								<?php } ?>
@@ -1127,8 +1108,6 @@ class StoreMigrationWooCommerce_Orders {
 									<td><?php print $order->get_payment_method_title(); ?></td>
 								<?php } ?>
 
-
-
 									<?php
 									if ( $meta === 'get_product_id()' ) {
 										$productIds = array();
@@ -1143,7 +1122,6 @@ class StoreMigrationWooCommerce_Orders {
 										?>
 									<td><?php print implode( ',', $productIds ); ?></td>
 									<?php } ?>
-
 
 									<?php
 									if ( $meta === 'get_name()' ) {
