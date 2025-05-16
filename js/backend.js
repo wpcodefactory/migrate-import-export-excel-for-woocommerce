@@ -26,7 +26,6 @@
 			});
 		});
 
-
 		function dismiss(){
 
 				var ajax_options = {
@@ -39,7 +38,6 @@
 				$.post( eshopMigrationWooCommerce.ajax_url, ajax_options, function(data) {
 					$(".eshopMigrationWooCommerce_notification").fadeOut();
 				});
-
 
 		}
 
@@ -92,7 +90,6 @@
 		$(".eshopMigrationWooCommerce .updateinfo").slideToggle();
 	});
 
-
 	//drag and drop
 	function procsmeproDragDrop(){
 		$('.eshopMigrationWooCommerce .draggable').draggable({cancel:false});
@@ -115,7 +112,6 @@
 	}
 	procsmeproDragDrop();
 
-
 	function procsmeproautomatch_columns(){
 	}
 
@@ -130,7 +126,6 @@
 			$(".eshopMigrationWooCommerce").find('form').submit();
 		}
     });
-
 
 	$(".eshopMigrationWooCommerce #product_import").on("submit", function (e) {
 		e.preventDefault();
@@ -161,7 +156,6 @@
 
 						procsmeproautomatch_columns();
 
-
 						$('.eshopMigrationWooCommerce input#update_only').on("change",function(){
 							if ($(this).is(':checked')) {
 								$('.eshopMigrationWooCommerce #productupdateBy').show();
@@ -171,7 +165,6 @@
 
 							}
 						});
-
 
 						$(".eshopMigrationWooCommerce #product_process").on('submit',function(e) {
 							e.preventDefault();
@@ -224,10 +217,6 @@
 			});
 	});
 
-
-
-
-
 			$(".eshopMigrationWooCommerce .exportToggler").on('click',function(){
 				$(".eshopMigrationWooCommerce #exportProductsForm,.eshopMigrationWooCommerce #exportReviewsForm,.eshopMigrationWooCommerce #exportCouponsForm.eshopMigrationWooCommerce #exportOrdersForm").slideToggle();
 				$(".eshopMigrationWooCommerce .exportTableWrapper").slideToggle();
@@ -235,13 +224,8 @@
 				$(".eshopMigrationWooCommerce #selectTaxonomy").slideToggle();
 			});
 
-
-
-
 			$(".eshopMigrationWooCommerce #exportProductsForm").on('submit',function(e) {
 					e.preventDefault();
-
-
 
 				//if checkbox is checked
 				$(".eshopMigrationWooCommerce .fieldsToShow").each(function(){
@@ -257,7 +241,6 @@
 						$('.eshopMigrationWooCommerce').addClass('loading');
 					},
 					success: function(response){
-
 
 						$('.eshopMigrationWooCommerce').removeClass('loading');
 
@@ -293,7 +276,6 @@
 
 									if( $('.eshopMigrationWooCommerce #toExport >tbody >tr').length >= total ){
 
-
 										$('.eshopMigrationWooCommerce #myProgress').delay(10000).hide('loading');
 
 										$("body").find('#exportProductsForm').find("input[type='number'],input[type='text'], select, textarea").val('');
@@ -302,7 +284,6 @@
 										$('.eshopMigrationWooCommerce .message').removeClass('error');
 
 										$(".eshopMigrationWooCommerce #toExport").tableExport();
-
 
 									}else{
 
@@ -340,12 +321,7 @@
 					}
 					});
 
-
-
 			});
-
-
-
 
     $('.eshopMigrationWooCommerce #check_all1').on('change',function(){
         var checkboxes = $('.eshopMigrationWooCommerce .tax_checks').find(':checkbox');
@@ -364,9 +340,6 @@
 				checkboxes.prop('checked', false);
 			}
     });
-
-
-
 
 	$(".eshopMigrationWooCommerce #user_import").on("submit", function (e) {
 		e.preventDefault();
@@ -447,10 +420,6 @@
 			});
 	});
 
-
-
-
-
 	$(".eshopMigrationWooCommerce #orders_import").on("submit", function (e) {
 		e.preventDefault();
 				var wpeiData = new FormData();
@@ -528,7 +497,6 @@
 					}
 			});
 	});
-
 
 	$(".eshopMigrationWooCommerce #coupons_import").on("submit", function (e) {
 		e.preventDefault();
@@ -608,12 +576,10 @@
 			});
 	});
 
-
 	/*	EXPORT PROCESSES	*/
 
 			$(".eshopMigrationWooCommerce #exportUsersForm").on('submit',function(e) {
 					e.preventDefault();
-
 
 				//if checkbox is checked
 				$(".eshopMigrationWooCommerce .fieldsToShow").each(function(){
@@ -663,9 +629,7 @@
 
 									if( $('#toExport >tbody >tr').length >= total ){
 
-
 										$('.eshopMigrationWooCommerce #myProgress').delay(10000).hide('loading');
-
 
 										$("body").find('#exportUsersForm').find("input[type='number'],input[type='text'], select, textarea").val('');
 
@@ -713,11 +677,8 @@
 					});
 			});
 
-
-
 			$(".eshopMigrationWooCommerce #exportCouponsForm").on('submit',function(e) {
 					e.preventDefault();
-
 
 				//if checkbox is checked
 				$(".eshopMigrationWooCommerce .fieldsToShow").each(function(){
@@ -767,9 +728,7 @@
 
 									if( $('#toExport >tbody >tr').length >= total ){
 
-
 										$('.eshopMigrationWooCommerce #myProgress').delay(10000).hide('loading');
-
 
 										$("body").find('#exportCouponsForm').find("input[type='number'],input[type='text'], select, textarea").val('');
 										if( $('#toExport >tbody >tr').length >= 1 ){
@@ -815,12 +774,8 @@
 					});
 			});
 
-
-
-
 			$(".eshopMigrationWooCommerce #exportOrdersForm").on('submit',function(e) {
 					e.preventDefault();
-
 
 				//if checkbox is checked
 				$(".eshopMigrationWooCommerce .fieldsToShow").each(function(){
@@ -870,9 +825,7 @@
 
 									if( $('#toExport >tbody >tr').length >= total ){
 
-
 										$('.eshopMigrationWooCommerce #myProgress').delay(10000).hide('loading');
-
 
 										$("body").find('#exportOrdersForm').find("input[type='number'],input[type='text'], select, textarea").val('');
 										if( $('#toExport >tbody >tr').length >= 1 ){
@@ -917,8 +870,5 @@
 					}
 					});
 			});
-
-
-
 
 })( jQuery )
