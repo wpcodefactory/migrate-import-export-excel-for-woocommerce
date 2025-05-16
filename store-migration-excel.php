@@ -142,12 +142,12 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 	/**
 	 * notification.
 	 *
-	 * @todo    (v3.0.0) `toplevel_page_store-migration-woocommerce`?
+	 * @version 3.0.0
 	 */
 	public function notification() {
 
 		$screen = get_current_screen();
-		if ( 'toplevel_page_store-migration-woocommerce' !== $screen->base ) {
+		if ( 'wpfactory_page_store-migration-woocommerce' !== $screen->base ) {
 			return;
 		}
 
