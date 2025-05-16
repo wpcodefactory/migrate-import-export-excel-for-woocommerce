@@ -24,7 +24,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1403' );
+defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1411' );
 
 defined( 'WPFACTORY_WC_PROCM_FILE' ) || define( 'WPFACTORY_WC_PROCM_FILE', __FILE__ );
 
@@ -84,8 +84,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		add_action( 'admin_enqueue_scripts', array( $this, 'BackEndScripts' ) );
 
 		add_action( 'wpfactory_wc_procm_output_settings', array( $this, 'init' ) );
-
-		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'Links' ) );
 
 		add_action(
 			'before_woocommerce_init',
@@ -246,12 +244,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		);
 		wp_localize_script( esc_html( $this->plugin ) . 'adminJs', esc_html( $this->plugin ), $this->localizeBackend );
 		wp_enqueue_script( esc_html( $this->plugin ) . 'adminJs' );
-	}
-
-	public function Links( $links ) {
-		$mylinks[] = '<a href="' . admin_url( 'admin.php?page=' . $this->slug ) . '">' . esc_html__( 'Settings', 'store-migration-products-orders-import-export-with-excel' ) . '</a>';
-		$mylinks[] = "<a href='" . esc_url( $this->proUrl ) . "' target='_blank'>" . esc_html__( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ) . '</a>';
-		return array_merge( $links, $mylinks );
 	}
 
 	public function init() {

@@ -96,12 +96,49 @@ final class WPFactory_WC_PROCM {
 		// Load libs
 		require_once plugin_dir_path( WPFACTORY_WC_PROCM_FILE ) . 'vendor/autoload.php';
 
+		// Action links
+		add_filter(
+			'plugin_action_links_' . plugin_basename( WPFACTORY_WC_PROCM_FILE ),
+			array( $this, 'action_links' )
+		);
+
 		// "Recommendations" page
 		add_action( 'init', array( $this, 'add_cross_selling_library' ) );
 
 		// Settings
 		add_filter( 'admin_menu', array( $this, 'add_settings' ), 11 );
 
+	}
+
+	/**
+	 * action_links.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
+	 *
+	 * @param   mixed $links
+	 * @return  array
+	 *
+	 * @todo    (v3.0.0) update Pro URL
+	 */
+	function action_links( $links ) {
+		$custom_links = array();
+
+		$custom_links[] = '<a href="' . admin_url( 'admin.php?page=store-migration-woocommerce' ) . '">' .
+			__( 'Settings', 'store-migration-products-orders-import-export-with-excel' ) .
+		'</a>';
+
+		$custom_links[] = (
+			'<a' .
+				' target="_blank"' .
+				' style="font-weight: bold; color: green;"' .
+				' href="https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel/"' .
+			'>' .
+				__( 'Go Pro', 'store-migration-products-orders-import-export-with-excel' ) .
+			'</a>'
+		);
+
+		return array_merge( $custom_links, $links );
 	}
 
 	/**
