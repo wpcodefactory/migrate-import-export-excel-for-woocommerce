@@ -19,7 +19,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1330' );
+defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0-dev-20250516-1332' );
 
 defined( 'WPFACTORY_WC_PROCM_FILE' ) || define( 'WPFACTORY_WC_PROCM_FILE', __FILE__ );
 
@@ -29,8 +29,8 @@ if ( ! function_exists( 'wpfactory_wc_procm' ) ) {
 	/**
 	 * Returns the main instance of WPFactory_WC_PROCM to prevent the need to use globals.
 	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
+	 * @version 3.0.0
+	 * @since   3.0.0
 	 */
 	function wpfactory_wc_procm() {
 		return WPFactory_WC_PROCM::instance();
@@ -50,20 +50,28 @@ require_once plugin_dir_path( __FILE__ ) . '/includes/coupons.php';
 
 /**
  * StoreMigrationWooCommerce class.
+ *
+ * @version 3.0.0
  */
 class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
-		public $plugin       = 'eshopMigrationWooCommerce';
-		public $name         = 'Store Migration Products Orders Import Export with Excel for WooCommerce';
-		public $shortName    = 'Store Migration';
-		public $slug         = 'store-migration-woocommerce';
-		public $dashicon     = 'dashicons-cart';
-		public $proUrl       = 'https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel';
-		public $menuPosition = '50';
-		public $localizeBackend;
-		public $localizeFrontend;
-		public $description = 'Migrate -import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel';
+	public $plugin       = 'eshopMigrationWooCommerce';
+	public $name         = 'Store Migration Products Orders Import Export with Excel for WooCommerce';
+	public $shortName    = 'Store Migration';
+	public $slug         = 'store-migration-woocommerce';
+	public $dashicon     = 'dashicons-cart';
+	public $proUrl       = 'https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel';
+	public $menuPosition = '50';
+	public $description  = 'Migrate -import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel';
 
+	public $localizeBackend;
+	public $localizeFrontend;
+
+	/**
+	 * Constructor.
+	 *
+	 * @version 3.0.0
+	 */
 	public function __construct() {
 
 		add_action( 'plugins_loaded', array( $this, 'translate' ) );
@@ -71,7 +79,8 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'BackEndScripts' ) );
 
-		add_action( 'admin_menu', array( $this, 'SettingsPage' ) );
+		add_action( 'wpfactory_wc_procm_output_settings', array( $this, 'init' ) );
+
 		add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'Links' ) );
 
 		add_action(
@@ -237,11 +246,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		);
 		wp_localize_script( esc_html( $this->plugin ) . 'adminJs', esc_html( $this->plugin ), $this->localizeBackend );
 		wp_enqueue_script( esc_html( $this->plugin ) . 'adminJs' );
-	}
-
-	public function SettingsPage() {
-		add_menu_page( esc_html( $this->shortName ), esc_html( $this->shortName ), 'administrator', esc_html( $this->slug ), array( $this, 'init' ), 'dashicons-upload', '50' );
-		add_submenu_page( 'woocommerce', esc_html( $this->shortName ), esc_html( $this->shortName ), 'manage_options', esc_html( $this->slug ), array( $this, 'init' ) );
 	}
 
 	public function Links( $links ) {

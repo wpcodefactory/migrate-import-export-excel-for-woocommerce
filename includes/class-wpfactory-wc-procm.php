@@ -82,6 +82,9 @@ final class WPFactory_WC_PROCM {
 		// "Recommendations" page
 		add_action( 'init', array( $this, 'add_cross_selling_library' ) );
 
+		// Settings
+		add_filter( 'admin_menu', array( $this, 'add_settings' ), 11 );
+
 	}
 
 	/**
@@ -100,6 +103,42 @@ final class WPFactory_WC_PROCM {
 		$cross_selling->setup( array( 'plugin_file_path' => WPFACTORY_WC_PROCM_FILE ) );
 		$cross_selling->init();
 
+	}
+
+	/**
+	 * add_settings.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
+	 */
+	function add_settings() {
+
+		if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
+			return;
+		}
+
+		$admin_menu = WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
+
+		add_submenu_page(
+			$admin_menu->get_menu_slug(),
+			__( 'Store Migration', 'store-migration-products-orders-import-export-with-excel' ),
+			__( 'Store Migration', 'store-migration-products-orders-import-export-with-excel' ),
+			'manage_woocommerce',
+			'store-migration-woocommerce',
+			array( $this, 'output_settings' ),
+			30
+		);
+
+	}
+
+	/**
+	 * output_settings.
+	 *
+	 * @version 3.0.0
+	 * @since   3.0.0
+	 */
+	function output_settings() {
+		do_action( 'wpfactory_wc_procm_output_settings' );
 	}
 
 	/**

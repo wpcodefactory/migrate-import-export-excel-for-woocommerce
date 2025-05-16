@@ -118,6 +118,9 @@ This feature is available in the [PRO Version](https://extend-wp.com/product/pro
 == Changelog ==
 
 = 3.0.0 - 16/05/2025 =
+* Dev - Plugin settings moved to the "WPFactory" menu.
+* Dev - "Recommendations" added.
+* Dev - Code refactoring and cleanup.
 * WC tested up to: 9.8.
 * Tested up to: 6.8.
 
