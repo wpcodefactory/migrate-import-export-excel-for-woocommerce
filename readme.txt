@@ -35,14 +35,12 @@ In order to migrate your old eShop to a new website you can follow this series o
 * import the xlsx file
 * go to excel columns mapping screen and easily DRAG & DROP the data
 
-
 **WOOCOMMERCE EXPORT**
 
 * you go to Export Screen / Export Products, Export Customers, Export Orders or Export Coupons
 * use criteria for your export query
 * choose what fields to export
 finally you get a table of fields that can be downloaded in xlsx, csv, or txt format
-
 
 = ALL FEATURES =
 
@@ -55,8 +53,6 @@ finally you get a table of fields that can be downloaded in xlsx, csv, or txt fo
 7. Coupon Export: Export WooCommerce Coupons to xlsx, csv or txt file
 8. Order Import: Import WooCommerce Orders using data added to xlsx file [variable products support in PRO Version](https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel/ "Products Reviews Orders Customers Coupons WooCommerce Migration Pro")
 9. Order Export: Export WooCommerce Orders to xlsx, csv or txt file
-
-
 
 **STORE MIGRATION PRO VERSION**
 
@@ -84,7 +80,6 @@ finally you get a table of fields that can be downloaded in xlsx, csv, or txt fo
 
 [youtube https://www.youtube.com/watch?v=-1-Q_gUBVfU&rel=0]
 
-
 [Get it Here](https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel/ "Products Reviews Orders Customers Coupons WooCommerce Migration Pro")
 
 == Installation ==
@@ -110,10 +105,8 @@ This feature is available in the [PRO Version](https://extend-wp.com/product/pro
 = Can I import WooCommerce Subscriptions? =
 This feature is available in the [PRO Version](https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel/ "Products Reviews Orders Subscriptions Customers Coupons WooCommerce Migration Pro").
 
-
 = Can I import / update YOAST SEO Meta Fields for the Products like Title and description? =
 This feature is available in the [PRO Version](https://extend-wp.com/product/products-reviews-orders-customers-woocommerce-migration-excel/ "Products Reviews Orders Subscriptions Customers Coupons WooCommerce Migration Pro").
-
 
 == Screenshots ==
 

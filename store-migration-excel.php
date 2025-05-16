@@ -143,7 +143,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		}
 	}
 
-
 	public function push_not() {
 
 		delete_transient( $this->plugin . '_notification' );
@@ -214,7 +213,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		wp_enqueue_script( esc_html( $this->plugin ) . 'adminJs' );
 	}
 
-
 	public function SettingsPage() {
 		add_menu_page( esc_html( $this->shortName ), esc_html( $this->shortName ), 'administrator', esc_html( $this->slug ), array( $this, 'init' ), 'dashicons-upload', '50' );
 		add_submenu_page( 'woocommerce', esc_html( $this->shortName ), esc_html( $this->shortName ), 'manage_options', esc_html( $this->slug ), array( $this, 'init' ) );
@@ -225,8 +223,6 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		$mylinks[] = "<a href='" . esc_url( $this->proUrl ) . "' target='_blank'>" . esc_html__( 'PRO Version', 'store-migration-products-orders-import-export-with-excel' ) . '</a>';
 		return array_merge( $links, $mylinks );
 	}
-
-
 
 	public function init() {
 		print "<div class='" . esc_attr( $this->plugin ) . "'>";
