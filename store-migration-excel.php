@@ -141,6 +141,8 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
 	/**
 	 * notification.
+	 *
+	 * @todo    (v3.0.0) `toplevel_page_store-migration-woocommerce`?
 	 */
 	public function notification() {
 
@@ -200,37 +202,83 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 	 */
 	public function BackEndScripts( $hook ) {
 
-		$screen = get_current_screen();
-
-		wp_enqueue_style( $this->plugin . 'adminCss', plugins_url( '/css/backend.css?v=olu', __FILE__ ) );
+		wp_enqueue_style(
+			$this->plugin . 'adminCss',
+			plugins_url( '/css/backend.css?v=olu', __FILE__ )
+		);
 
 		wp_enqueue_script( 'jquery' );
+
 		wp_enqueue_media();
+
 		wp_enqueue_style( 'wp-color-picker' );
+
 		wp_enqueue_script( 'jquery-ui-tabs' );
-		wp_enqueue_style( $this->plugin . 'ui_style', plugins_url( '/css/jquery-ui.css', __FILE__ ) );
-		wp_enqueue_script( $this->plugin . 'xlsx', plugins_url( '/js/xlsx.js', __FILE__ ), array( 'jquery' ), null, true );
 
-		wp_enqueue_script( $this->plugin . 'filesaver', plugins_url( '/js/filesaver.js', __FILE__ ), array( 'jquery' ), null, true );
+		wp_enqueue_style(
+			$this->plugin . 'ui_style',
+			plugins_url( '/css/jquery-ui.css', __FILE__ )
+		);
 
-		wp_enqueue_script( $this->plugin . 'tableexport', plugins_url( '/js/tableexport.js', __FILE__ ), array( 'jquery' ), null, true );
+		wp_enqueue_script(
+			$this->plugin . 'xlsx',
+			plugins_url( '/js/xlsx.js', __FILE__ ),
+			array( 'jquery' ),
+			null,
+			true
+		);
+
+		wp_enqueue_script(
+			$this->plugin . 'filesaver',
+			plugins_url( '/js/filesaver.js', __FILE__ ),
+			array( 'jquery' ),
+			null,
+			true
+		);
+
+		wp_enqueue_script(
+			$this->plugin . 'tableexport',
+			plugins_url( '/js/tableexport.js', __FILE__ ),
+			array( 'jquery' ),
+			null,
+			true
+		);
 
 		if ( ! wp_script_is( $this->plugin . '_fa', 'enqueued' ) ) {
-			wp_enqueue_style( $this->plugin . '_fa', plugins_url( '/css/font-awesome.min.css', __FILE__ ) );
+			wp_enqueue_style(
+				$this->plugin . '_fa',
+				plugins_url( '/css/font-awesome.min.css', __FILE__ )
+			);
 		}
 
-		wp_enqueue_script( $this->plugin . 'adminJs', plugins_url( '/js/backend.js?v=olu', __FILE__ ), array( 'jquery', 'wp-color-picker', 'jquery-ui-tabs', 'jquery-ui-draggable', 'jquery-ui-droppable', 'jquery-ui-accordion' ), null, true );
-
-		$localize = array(
-			'RestRoot'       => esc_url_raw( rest_url() ),
-			'plugin_url'     => plugins_url( '', __FILE__ ),
-			'siteUrl'        => site_url(),
-			'ajax_url'       => admin_url( 'admin-ajax.php' ),
-			'nonce'          => wp_create_nonce( 'wp_rest' ),
-			'plugin_wrapper' => $this->plugin,
-			'exportfile'     => plugins_url( '/js/tableexport.js', __FILE__ ),
+		wp_enqueue_script(
+			$this->plugin . 'adminJs',
+			plugins_url( '/js/backend.js?v=olu', __FILE__ ),
+			array(
+				'jquery',
+				'wp-color-picker',
+				'jquery-ui-tabs',
+				'jquery-ui-draggable',
+				'jquery-ui-droppable',
+				'jquery-ui-accordion'
+			),
+			null,
+			true
 		);
-		wp_localize_script( $this->plugin . 'adminJs', $this->plugin, $localize );
+
+		wp_localize_script(
+			$this->plugin . 'adminJs',
+			$this->plugin,
+			array(
+				'RestRoot'       => esc_url_raw( rest_url() ),
+				'plugin_url'     => plugins_url( '', __FILE__ ),
+				'siteUrl'        => site_url(),
+				'ajax_url'       => admin_url( 'admin-ajax.php' ),
+				'nonce'          => wp_create_nonce( 'wp_rest' ),
+				'plugin_wrapper' => $this->plugin,
+				'exportfile'     => plugins_url( '/js/tableexport.js', __FILE__ ),
+			)
+		);
 
 	}
 
