@@ -85,8 +85,8 @@ finally you get a table of fields that can be downloaded in xlsx, csv, or txt fo
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins` directory and unzip, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Use the Store Migration menu link, 'Store Migration' Submenu on Woocommerce or Settings link on plugins page to use the plugin.
+2. Activate the plugin through the "Plugins" screen in WordPress.
+3. Use the "WPFactory > Store Migration" menu link, or "Settings" link on plugins page to use the plugin.
 
 == Frequently Asked Questions ==
 

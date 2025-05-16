@@ -139,8 +139,6 @@ final class WPFactory_WC_PROCM {
 	 *
 	 * @param   mixed $links
 	 * @return  array
-	 *
-	 * @todo    (v3.0.0) update Pro URL
 	 */
 	function action_links( $links ) {
 		$custom_links = array();

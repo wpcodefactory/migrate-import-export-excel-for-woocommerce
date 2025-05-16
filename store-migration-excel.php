@@ -57,6 +57,9 @@ require_once plugin_dir_path( __FILE__ ) . '/includes/coupons.php';
  * StoreMigrationWooCommerce class.
  *
  * @version 3.0.0
+ *
+ * @todo    (v3.0.0) remove all `extend-wp` mentions
+ * @todo    (v3.0.0) rename plugin to "... for WooCommerce"
  */
 class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 
@@ -301,32 +304,32 @@ class StoreMigrationWooCommerce extends StoreMigrationWooCommerceInit {
 		<div id="<?php print esc_html( $this->plugin ) . 'Modal'; ?>" style='display:none;'>
 			<!-- Modal content -->
 			<div class="modal-content">
-			<div class='<?php print esc_html( $this->plugin ); ?>clearfix'><span class="close">&times;</span></div>
-			<div class='<?php print esc_html( $this->plugin ); ?>clearfix'>
-				<div class='<?php print esc_html( $this->plugin ); ?>columns2'>
-					<center>
-						<img style='width:90%' src='<?php echo esc_url( plugins_url( 'images/' . esc_html( $this->slug ) . '-pro.png', __FILE__ ) ); ?>' style='width:100%' />
-					</center>
-				</div>
+				<div class='<?php print esc_html( $this->plugin ); ?>clearfix'><span class="close">&times;</span></div>
+				<div class='<?php print esc_html( $this->plugin ); ?>clearfix'>
+					<div class='<?php print esc_html( $this->plugin ); ?>columns2'>
+						<center>
+							<img style='width:90%' src='<?php echo esc_url( plugins_url( 'images/' . esc_html( $this->slug ) . '-pro.png', __FILE__ ) ); ?>' style='width:100%' />
+						</center>
+					</div>
 
-				<div class='<?php print esc_html( $this->plugin ); ?>columns2'>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'Import Variable, Affiliate, Subscription Products with excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'WPML support for Product Translations Import ', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'ACF & YOAST SEO META support for Import in products', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'export Variable, Affiliate, Subscription Products to excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'Products custom Fields Support', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'Bulk import taxonomy terms for products with excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'import Product Reviews with excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'export Product Reviews to excel', 'store-migration-products-orders-import-export-with-excel' ); ?></strong></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'import Orders with variable products', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'import Orders & apply Coupons', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'import/export WooCommerce Subscriptions', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'create Customer during Order import', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( 'Customers custom fields Support', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p><i class='fa fa-check'></i> <?php esc_html_e( '.. and a lot more!', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
-					<p class='bottomToUp'><center><a target='_blank' class='proUrl' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'GET IT HERE', 'store-migration-products-orders-import-export-with-excel' ); ?></a></center></p>
+					<div class='<?php print esc_html( $this->plugin ); ?>columns2'>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'Import Variable, Affiliate, Subscription Products with excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'WPML support for Product Translations Import ', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'ACF & YOAST SEO META support for Import in products', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'export Variable, Affiliate, Subscription Products to excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'Products custom Fields Support', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'Bulk import taxonomy terms for products with excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'import Product Reviews with excel', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'export Product Reviews to excel', 'store-migration-products-orders-import-export-with-excel' ); ?></strong></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'import Orders with variable products', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'import Orders & apply Coupons', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'import/export WooCommerce Subscriptions', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'create Customer during Order import', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( 'Customers custom fields Support', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p><i class='fa fa-check'></i> <?php esc_html_e( '.. and a lot more!', 'store-migration-products-orders-import-export-with-excel' ); ?></p>
+						<p class='bottomToUp'><center><a target='_blank' class='proUrl' href='<?php print esc_url( $this->proUrl ); ?>'><?php esc_html_e( 'GET IT HERE', 'store-migration-products-orders-import-export-with-excel' ); ?></a></center></p>
+					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 		<?php
