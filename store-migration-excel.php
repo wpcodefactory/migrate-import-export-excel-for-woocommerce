@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Migrate Import Export WooCommerce Store with Excel
  * Description: Migrate - import and/or export - your Products, Reviews, Customers, Orders to WooCommerce with Excel.
- * Version: 3.0.0
+ * Version: 3.0.1
  * Author: WPFactory
  * Author URI: https://wpfactory.com
  *
@@ -24,7 +24,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.0' );
+defined( 'WPFACTORY_WC_PROCM_VERSION' ) || define( 'WPFACTORY_WC_PROCM_VERSION', '3.0.1' );
 
 defined( 'WPFACTORY_WC_PROCM_FILE' ) || define( 'WPFACTORY_WC_PROCM_FILE', __FILE__ );
 
