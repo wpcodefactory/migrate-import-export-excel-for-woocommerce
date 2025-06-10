@@ -4,7 +4,7 @@ Tags: excel, migrate, import orders, product export, order export
 Requires at least: 3.0.1
 Requires PHP: 8.1
 Tested up to: 6.8
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -116,6 +116,9 @@ This feature is available in the [PRO Version](https://extend-wp.com/product/pro
 4. Export Field Selection
 
 == Changelog ==
+
+= 3.0.2 - 10/06/2025 =
+* Fix - Fix plugin icon.
 
 = 3.0.1 - 09/06/2025 =
 * Dev - Updated plugin icon and banner.
